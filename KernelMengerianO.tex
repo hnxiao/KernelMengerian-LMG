@@ -76,21 +76,22 @@
 \openup 1.2\jot
 
 \begin{abstract}
-Given an digraph $D$, $\sigma(D)$ denotes the linear system consisting of domination, independence and nonnegativity constraints, and $FK(D)$ denotes the set of all solutions of $\sigma(D)$. We call $D$ is strongly kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and strongly kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. Given a preference system $(G,\prec)$, $\pi(G,\prec)$ denotes the Rothblum system for $(G,\prec)$ and $FSM(G,\prec)$ denotes all solution of $\pi(G,\prec)$. 
+Given a digraph $D$, $\sigma(D)$ denotes the linear system consisting of domination, independence and nonnegativity constraints, and $FK(D)$ denotes the set of all solutions to $\sigma(D)$. We call $D$ strongly kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and strongly kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. Given a preference system $(G,\prec)$, $\pi(G,\prec)$ denotes the Rothblum system for $(G,\prec)$ and $FSM(G,\prec)$ denotes the set of all solutions to $\pi(G,\prec)$. 
 
-In this paper, we prove that  $D$ is a `good' orientation of line multigraph $L(H)$ iff $D$ is kernel ideal iff $D$ is kernel Mengerian. We construct a preference system $(H,\prec)$ from each `good' orientation $D$ such that $FK(D)=FSM(H,\prec)$. Then we work on a projection $FSM(\hat{H},\hat\prec)$ of $FSM(H,\prec)$ where $(\hat{H},\hat\prec)$ is a preference subsystem of $(H,\prec)$ such that $\hat{H}$ is a underlying simple graph of $H$ and $\hat\prec$ is the restriction of $\prec$ onto $\hat{H}$. We prove our results by showing that $FK(D)$ is integral iff $FSM(\hat{H},\hat\prec)$ is integral and $\sigma(D)$ is TDI if $\pi(\hat{H},\hat\prec)$ is TDI.
+In this paper, we prove that  $D$ is a `good' orientation of line multigraph $L(H)$ iff $D$ is strongly kernel ideal iff $D$ is strongly kernel Mengerian. We construct a preference system $(H,\prec)$ from an arbitrary `good' orientation $D$ such that $FSM(H,\prec)=FK(D)$. Then we work on a projection $FSM(\hat{H},\hat\prec)$ of $FSM(H,\prec)$ where $(\hat{H},\hat\prec)$ is a preference subsystem of $(H,\prec)$ such that $\hat{H}$ is an underlying simple graph of $H$ and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. We prove our results by showing that $FK(D)$ is integral iff $FSM(\hat{H},\hat\prec)$ is integral and $\sigma(D)$ is TDI if $\pi(\hat{H},\hat\prec)$ is TDI.
 \end{abstract}
 
 \section{Introduction}
 \label{intro}
-Let $G$ be a undirected graph. We call $G$ \textit{simple} if it contains no loops or parallel edges and call $G$ a \textit{multigraph} if it contains no loops but parallel edges are allowed. 
+Let $G$ be an undirected graph. We call $G$ \textit{simple} if it contains no loops or parallel edges and call $G$ a \textit{multigraph} if it contains no loops but parallel edges are allowed. 
 
-The \textit{line graph} of a undirected graph $G$ is a undirected simple graph that represents the adjacency of edges of $G$. The \textit{line multigraph} of a undirected graph $G$ is a undirected multigraph that represents the adjacencies of edges of $G$ and if edges $e$ and $f$ have two common ends in $G$, their corresponding vertices are joined by two edges. In this paper, line graphs and line multigraphs of $G$ are both denoted by $L(G)$ if no ambiguity occurs. Observe that the line graph and line multigraph of $G$ are the same when $G$ is simple. And for any two vertices in a line multigraph, they have at most two parallel edges between them.
+The \textit{line graph} of an undirected graph $G$ is a undirected simple graph that represents the adjacency of edges of $G$. The \textit{line multigraph} of an undirected graph $G$ is an undirected multigraph that represents the adjacency of edges of $G$ and if edges $e$ and $f$ have two common ends in $G$, their corresponding vertices are joined by two edges. In this paper, line graphs and line multigraphs of $G$ are both denoted by $L(G)$ if no ambiguity occurs. Observe that the line graph and line multigraph of $G$ are the same when $G$ is simple. And for any two vertices in a line multigraph, they have at most two parallel edges between them.
 
-A \textit{digraph} is a graph, where edges have a direction associated with them. \textit{Simple} digraphs and \textit{multidigraphs} are defined analogously to simple graphs and multigraphs. An \textit{orientation} of a undirected graph $G$ is a digraph obtained by orienting each edge of $G$ in either direction. A \textit{clique} of $G$ (\textit{resp.} $D$) is a subset of vertex set of $G$ (\textit{resp.} $D$) such that every two distinct vertices are adjacent. An orientation of $G$ is \textit{clique-acyclic} if for every clique of $G$ the induced subdigraph of one-way arcs is acyclic. 
- 
-Let $D=(V,A)$ be a digraph. We call $U\subseteq V$ an \textit{independent} set of $D$ if no two vertices in $U$ are connected by an arc, call $U$ a \textit{dominating} set of $D$ if for each vertex $v\not\in U$, there is an arc from $v$ to $U$, and call $U$ a \textit{kernel} of $D$ if it is both independent and dominating. 
-We call $D$ \textit{good} if it is clique-acyclic and each directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$}. 
+A \textit{digraph} is a graph, where edges have a direction associated with them. \textit{Simple} digraphs and \textit{multidigraphs} are defined analogously to simple graphs and multigraphs. An \textit{orientation} of an undirected graph $G$ is a digraph obtained by orienting each edge of $G$ in either direction. 
+
+Let $D=(V,A)$ be a digraph. 
+For $U\subseteq V$, We call $U$ an \textit{independent} set of $D$ if no two vertices in $U$ are connected by an arc, call $U$ a \textit{dominating} set of $D$ if for each vertex $v\not\in U$, there is an arc from $v$ to $U$, and call $U$ a \textit{kernel} of $D$ if it is both independent and dominating. 
+A \textit{clique} of $D$ is a subset of $V$ such that every two distinct vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for every clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and each directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$}. 
 
 \begin{theorem}[Borodin \textit{et al.} \cite{BoroKost98}]
 \label{thm:BoroKost98}
@@ -106,9 +107,9 @@ x(v)+x(N^+_{D}(v)) &\geq 1 &\qquad &\forall ~ v~&\in V, \label{domination constr
 x(Q)&\leq 1 &\qquad &\forall ~ Q &\in \mathcal{Q}, \label{independence constraints}\\
 x(v) &\geq 0 &\qquad &\forall ~ v~&\in V, \label{vertex nonnegativity}
 \end{alignat}
-where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N_D^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the collection of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ of $\sigma(D)$.
+where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N_D^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the set of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ to $\sigma(D)$.
 
-The \textit{kernel polyotpe} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ of $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
+The \textit{kernel polyotpe} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ to $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
 
 We call $D$ \textit{kernel perfect} if each of its induced subgraphs has a kernel, \textit{strongly kernel ideal} if $FK(D')$ is integral for each induced subgraph $D'$ of $D$, and \textit{strongly kernel Mengerian} if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$.
 
@@ -125,12 +126,12 @@ Let $G$ be a line multigraph, and let $D$ be an orientation of $G$. Then the fol
 \end{enumerate}
 \end{theorem}
 
-The equivalence of $(i)$ and $(ii)$ was established by Theorem \ref{thm:BoroKost98} (see Maffray \cite{Maff92} for the case when $G$ is perfect line graphs). Kir\'{a}ly and Pap \cite{KiraPap08} proved the theorem for the case when $G$ is the line graph of a bipartite graph.	 Our paper generalizes the result of Kir\'{a}ly and Pap to general line multigraphs.
+The equivalence of $(i)$ and $(ii)$ was established by Theorem \ref{thm:BoroKost98} (see Maffray \cite{Maff92} for the case when $G$ is perfect). Kir\'{a}ly and Pap \cite{KiraPap08} proved the theorem for the case when $G$ is the line graph of a bipartite graph.	 Our paper generalizes the result of Kir\'{a}ly and Pap to general line multigraphs.
 
 
 \section{Preliminaries}
 \label{pre}
-Let $G=(V,E)$ be a undirected graph. For each $v\in V$, let $\delta(v)$ be the set of all edges incident to $v$ and let $\prec_v$ be a strict linear order on $\delta(v)$. We call $\prec_v$ the \emph{preference} of $v$ and say that $v$ \emph{prefers} $e$ to $f$ if $e\prec_v f$. Let $\prec$ be collection of all these $\prec_v$ for $v\in V$. We call the pair $(G,\prec)$ a \emph{preference system}. An edge $e$ is said to dominate another edge $f$ if they have a common end $v$ such that $e\preceq_v f$. Let $M$ be a matching of $G$. We call $M$ \emph{stable} if each edge of $G$ is dominated by some edge in $M$.
+Let $G=(V,E)$ be an undirected graph. For each $v\in V$, let $\delta(v)$ be the set of all edges incident to $v$ and let $\prec_v$ be a strict linear order on $\delta(v)$. We call $\prec_v$ the \emph{preference} of $v$ and say that $v$ \emph{prefers} $e$ to $f$ if $e\prec_v f$. Let $\prec$ be collection of all these $\prec_v$ for $v\in V$. We call the pair $(G,\prec)$ a \emph{preference system}. An edge $e$ is said to dominate another edge $f$ if they have a common end $v$ such that $e\preceq_v f$. Let $M$ be a matching of $G$. We call $M$ \emph{stable} if each edge of $G$ is dominated by some edge in $M$.
 
 Let $(G,\prec)$ be a preference system. For each $e\in E$, let $\varphi(e)$ denote the set of all edges of $G$ that dominate $e$. Let $\pi(G,\prec)$ be the linear system consisting of the following inequalites:
 \begin{alignat}{3}
@@ -140,7 +141,7 @@ x(e) &\geq 0 &\qquad \forall ~e &\in E.\label{edge nonnegativity}
 \end{alignat}
 As observed by Abeledo and Rothblum, incidence vectors of stable matchings of $(G,\prec)$ are precisely integral solutions $x\in \mathbb{Z}^E$ of $\pi(G,\prec)$.
 
-The \textit{stable matching polytope}, denoted by $SM(G,\prec)$, is the convex hull of incidence vectors of all stable matchings of $(G,\prec)$. The \textit{fractional stable matching polytope}, denoted by $FSM(G,\prec)$, is the set of all solutions $x\in \mathbb{R}^E$ of $\pi(G,\prec)$. Clearly, $SM(G,\prec)\subseteq FSM(G,\prec)$. 
+The \textit{stable matching polytope}, denoted by $SM(G,\prec)$, is the convex hull of incidence vectors of all stable matchings of $(G,\prec)$. The \textit{fractional stable matching polytope}, denoted by $FSM(G,\prec)$, is the set of all solutions $x\in \mathbb{R}^E$ to $\pi(G,\prec)$. Clearly, $SM(G,\prec)\subseteq FSM(G,\prec)$. 
 
 \begin{theorem}[Rothblum \cite{Roth92}]
 \label{thm:Roth92}
@@ -156,12 +157,12 @@ Let $(G,\prec)$ be a preference system. If $G$ is bipartite, then $\pi(G,\prec)$
 Let $C=v_1 v_2 \ldots v_l$ be a cycle in $G$, we say that $C$ has \textit{cyclic preferences} in $(G,\prec)$ if
 $v_{i-1} v_i \prec_{v_i} v_i v_{i+1}$ for $i=1,2,\ldots,l$
 or $v_{i-1} v_i\succ_{v_i} v_i v_{i+1}$ for $i=1,2,\ldots,l$,
-where $i+1$ is taken modulo $l$.
-For $x\in FSM(G,\prec)$, $E_{\alpha}(x)$ denotes the set of all edges with $x(e)=\alpha$ for $\alpha\in\mathbb{R}$.
+where indices are taken modulo $l$.
+For $x\in FSM(G,\prec)$, $E_{\alpha}(x)$ denotes the set of all edges with $x(e)=\alpha$ where $\alpha\in\mathbb{R}$ and $E_+(x)$ denotes the set of all edges with $x(e)>0$.
 
 \begin{theorem}[Abeledo and Rothblum \cite{AbelRoth94}]
 \label{thm:AbelRoth94}
-Let $(G,\prec)$ be a preference system. Then $FSM(G,\prec)$ is $1/2$-integral. Moreover, for every $1/2$-integral point $x$ in $FSM(G,\prec)$, $E_{1/2}(x)$ consists of vertex disjoint cycles with cyclic preferences.
+Let $(G,\prec)$ be a preference system. Then $FSM(G,\prec)$ is $1/2$-integral. Moreover, for each $1/2$-integral point $x$ in $FSM(G,\prec)$, $E_{1/2}(x)$ consists of vertex disjoint cycles with cyclic preferences.
 \end{theorem} 
 
 \begin{theorem}[Chen \textit{et al.} \cite{ChenDing12}]
@@ -170,7 +171,7 @@ Let $(G,\prec)$ be a preference system. Then $\pi(G,\prec)$ is totally dual $1/2
 \end{theorem}
 
 \section{Reductions}
-Observe that to study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations among vertices. Hence in the reaming of this paper, we assume that $D$ is a multidigraph such that any two vertices are joined by at most one arc in each direction. For simplicity, we further assume that $D$ is an orientation of a line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely.
+Observe that to study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations among vertices. Hence in the remaining of this paper, we assume that $D$ is a multidigraph such that any two vertices are joined by at most one arc in each direction. For simplicity, we further assume that $D$ is an orientation of a line multigraph $L(H)$ such that any two distinct vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely.
 
 Kernels are closely related to stable matchings. Kernels in a clique-acyclic orientation $D$ of a line multigraph $L(H)$ correspond to stable matchings in the preference system $(H,\prec)$, where preferences $\prec$ are uniquely determined by orientations: for any two adjacent edges $e$ and $f$ in $H$, we define $e\prec_v f$ if $(e,f)$ is an arc in $D$. 
 Hence each clique-acyclic orientation $D$ of a line multigraph $L(H)$ is associated with a preference system $(H,\prec)$.
@@ -180,9 +181,9 @@ Observe that cliques of $D$ correspond to three types of edge sets in $H$:
 \begin{itemize}
 \item $\delta(v)$ for $v\in V(H)$,
 \item nontrivial subsets of $\delta(v)$ for $v\in V(H)$,
-\item 3-cycles in $H$.
+\item complete induced subgraphs of $H$ on three vertices (parallel edges are allowed).
 \end{itemize}
-Hence constraints (\ref{independence constraints}) can be viewed as constraints (\ref{matching constraints}) together with some extra constraints on $(H,\prec)$. Let $\mathcal{O}(H)$ denote the collection of all $3$-cycles in $H$. It follows that $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$:
+Hence constraints (\ref{independence constraints}) can be viewed as constraints (\ref{matching constraints}) together with some extra constraints on $(H,\prec)$. Let $\mathcal{O}(H)$ denote the set of all complete induced subgraphs of $H$ on three vertices. It follows that $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ by the following inequalities:
 \begin{alignat}{4}
 x(\varphi(e)) &\geq 1 &\qquad &\forall ~e &\in E(H),\label{constraints:1}\\
 x(\delta(v)) &\leq 1 &\qquad &\forall ~v &\in V(H),\label{constraints:2}\\
@@ -193,17 +194,17 @@ x(e) &\geq 0 &\qquad &\forall ~e &\in E(H)\label{constraints:5}.
 
 Notice that constraints (\ref{constraints:1}), (\ref{constraints:2}) and (\ref{constraints:5}) form the Rothblum system $\pi(H,\prec)$ which defines $FSM(H,\prec)$. Constraints (\ref{constraints:3}) are redundant for defining $FK(D)$ due to constraints (\ref{constraints:2}). It turns out that constraints (\ref{constraints:4}) are also redundant for defining $FK(D)$ when $D$ is good. Therefore, $FK(D)$ is essentially defined by Rothblum system $\pi(H,\prec)$, or equivalently $FK(D)=FSM(H,\prec)$, when $D$ is good.
 
-Notice that $H$ in preference system $(H,\prec)$ is a multigraph. We have the following observation for parallel edges in preference system $(H,\prec)$.
+Notice that $H$ in preference system $(H,\prec)$ is a multigraph. We have the following observation for each pair of parallel edges in preference system $(H,\prec)$.
 
 \begin{lemma}
 \label{lem:reduct1}
 For parallel edges $e$ and $e'$ in $E(H)$, there exists no edge $f$ such that $e\prec_v f \prec_v e'$ or $e'\prec_u f\prec_u e$, where $u$ and $v$ are endpoints of $e$ and $e'$.
 \end{lemma}
 \begin{proof}
-Since $D$ is clique-acyclic, the lemma follows directly.
+Since $D$ is clique-acyclic, by the construction of preference system $(H,\prec)$, the lemma follows directly.
 \end{proof}
 
-By Lemma \ref{lem:reduct1}, parallel edges play the same role in preference system $(H,\prec)$. Hence it suffices to work on preference systems defined on its underlying simple graphs. We use $(\hat{H},\hat\prec)$ to denote the preference subsystem of $(H,\prec)$, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices in $H$ and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. Before we proceed, we introduce a technical lemma first.
+By Lemma \ref{lem:reduct1}, parallel edges play exactly the same role in preference system $(H,\prec)$. Hence it suffices to work on any preference subsystem defined on its underlying simple graphs. Let $(\hat{H},\hat\prec)$ denote the preference subsystem of $(H,\prec)$, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices in $H$ and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. Before we proceed, we introduce a technical lemma first.
 
 \begin{lemma}
 \label{lem:reduct2}
@@ -254,7 +255,7 @@ implying that $y^*$ is a feasible dual solution to $\max\{\bar{c}^T \bar{x}:\bar
 If $\pi(\hat{H},\hat\prec)$ is totally dual $1/k$-integral, then so is $\pi(H,\prec)$, where $k\in\mathbb{N}$.
 \end{lemma}
 \begin{proof}
-By Lemma \ref{lem:reduct1}, columns in the left hand side matrix of $\pi(H,\prec)$ corresponding to parallel edges are identical. Hence the left hand side matrix of $\pi(H,\prec)$ can be obtained from that of $\pi(\hat{H},\hat\prec)$ by duplicating columns corresponding to parallels edges. Then the lemma follows from Lemma \ref{lem:reduct2}.
+By Lemma \ref{lem:reduct1}, in the left hand side matrix of $\pi(H,\prec)$ columns corresponding to parallel edges are identical. Hence the left hand side matrix of $\pi(H,\prec)$ can be obtained from that of $\pi(\hat{H},\hat\prec)$ by duplicating columns corresponding to parallels edges. Then the lemma follows from Lemma \ref{lem:reduct2}.
 \end{proof}
 
 \begin{lemma}
@@ -275,7 +276,7 @@ $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$. Moreover, each verte
 For simplicity, let $H=(V,E)$ and $\hat{H}=(V,\hat{E})$.
 For an arbitrary point $\hat{x}\in FSM(\hat{H},\hat\prec)$, define $x=(\hat{x},0)\in \mathbb{R}^{\hat{E}}\times \mathbb{R}^{E-\hat{E}}$. To show that $x\in FSM(H,\prec)$, it suffices to prove that $x(\varphi(e))\geq 1$ for $e\in E-\hat{E}$. Let $e'\in \hat{E}$ be the edge parallel with $e\in E-\hat{E}$. By Lemma \ref{lem:reduct1}, $x(\varphi(e))=x(\varphi(e'))=\hat{x}(\varphi(e'))\geq 1$. Hence $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$
 
-Let $x$ be a vertex of $FSM(H,\prec)$. Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e)=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, for $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e)=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e)=\hat{x}_i(e)$ and $x_i(e')=0$, otherwise $x_i(e)=0$ and $x_i(e')=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. And by Lemma \ref{lem:reduct4}, $x(e)\cdot x(e')=0$ for every pair of parallel edges $e$ and $e'$. Hence $x=\alpha x_1+(1-\alpha) x_2$ follows, contradicting to the assumption that $x$ is a vertex. Therefore, $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. It follows that each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e)=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e)=\hat{x}(e)$ and $x(e')=0$, otherwise $x(e)=0$ and $x(e')=\hat{x}(e)$. 
+Let $x$ be a vertex of $FSM(H,\prec)$. Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e)=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e)=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e)=\hat{x}_i(e)$ and $x_i(e')=0$, otherwise $x_i(e)=0$ and $x_i(e')=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. And by Lemma \ref{lem:reduct4}, $x(e)\cdot x(e')=0$ for every pair of parallel edges $e$ and $e'$. Hence $x=\alpha x_1+(1-\alpha) x_2$ follows, contradicting to the assumption that $x$ is a vertex. Therefore, $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. It follows that each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e)=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e)=\hat{x}(e)$ and $x(e')=0$, otherwise $x(e)=0$ and $x(e')=\hat{x}(e)$. 
 \end{proof}
 
 \begin{lemma}
@@ -288,18 +289,18 @@ The only if part is well known since by the first part of Lemma \ref{lem:reduct5
 
 
 \section{Proofs}
-As observed by Borodin \textit{et al.} \cite{BoroKost98}, an orientation $D$ of line multigraph $L(H)$ is good if and only if $D$ is clique-acyclic and for each odd cycle $C$ in $H$, the cycle $L(C)$ in $D$ is not a directed cycle. We remark that this equivalence relation can be extended to equivalent relations with preference systems $(H,\prec)$ and $(\hat{H},\hat\prec)$: an orientation $D$ of line multigraph $L(H)$ is good if and only if the preference system $(H,\prec)$ constructed from $D$ admits no odd cycle with cyclic preferences if and only if a preference subsystem $(\hat{H},\hat\prec)$ admits no odd cycle with cyclic preferences.
+As observed by Borodin \textit{et al.} \cite{BoroKost98}, an orientation $D$ of line multigraph $L(H)$ is good if and only if $D$ is clique-acyclic and for each odd cycle $C$ in $H$, the cycle $L(C)$ in $D$ is not a directed cycle. We remark that this equivalence relation can be extended to equivalent relations with preference system $(H,\prec)$ and its arbitrary preference subsystem $(\hat{H},\hat\prec)$: an orientation $D$ of line multigraph $L(H)$ is good if and only if the preference system $(H,\prec)$ constructed from $D$ admits no odd cycles with cyclic preferences if and only if its arbitrary preference subsystem $(\hat{H},\hat\prec)$ admits no odd cycles with cyclic preferences.
 
 \begin{lemma}
 \label{lem:prf1}
-If preference system $(\hat{H},\hat\prec)$ admits no odd cycle with cyclic preferences, then $SM(\hat{H},\hat\prec)=FSM(\hat{H},\hat\prec)$.
+If preference system $(\hat{H},\hat\prec)$ admits no odd cycles with cyclic preferences, then $SM(\hat{H},\hat\prec)=FSM(\hat{H},\hat\prec)$.
 \end{lemma}
 
 As observed by Chen \textit{et al.} \cite{ChenDing12}, integrality of $FSM(G,\prec)$ is equivalent with total dual integrality of $\pi(G,\prec)$. A corollary follows directly.
 
 \begin{corollary}
 \label{cor:prf2}
-If preference system $(\hat{H},\hat\prec)$ admits no odd cycle with cyclic preferences, then $\pi(\hat{H},\hat\prec)$ is totally dual integral.
+If preference system $(\hat{H},\hat\prec)$ admits no odd cycles with cyclic preferences, then $\pi(\hat{H},\hat\prec)$ is totally dual integral.
 \end{corollary}
 
 Let $x$ be a $1/2$-integral point in $FSM(\hat{H},\hat\prec)$, where preference system $(\hat{H},\hat\prec)$ admits no odd cycle with cyclic preferences.
@@ -312,11 +313,11 @@ z(e)=
 0 & \text{otherwise}.
 \end{cases}
 \end{equation*}
-Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbations $\epsilon z$ play a key role in our proof. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbations $\epsilon z$. It remains to show that perturbations $\epsilon z$ do not affect tight constraints in (\ref{stability constraints}) either. We first explore some properties of edges satisfying tight constraints in (\ref{stability constraints}), i.e., edges with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\rvert\in\{1,2\}$. When $\lvert \varphi(e)\rvert=1$, $e\in E_1(x)\subseteq E(\hat{H})$ follows, implying that corresponding tight constraint $x(\varphi(e))=1$ is invariant under perturbations $\epsilon z$. When $\lvert \varphi(e)\rvert=2$, the following lemma guarantees that corresponding tight constraints are also invariant under perturbations $\epsilon z$.
+Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbations $\epsilon z$ play a key role in our proof. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbations $\epsilon z$. It remains to show that perturbations $\epsilon z$ do not affect tight constraints in (\ref{stability constraints}) either. We first explore some properties of edges satisfying tight constraints in (\ref{stability constraints}), i.e., edges with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\cap E_+(x)\rvert \in\{1,2\}$. When $\lvert \varphi(e)\cap E_+(x)\rvert=1$, it is easy to see that tight constraint $x(\varphi(e))=1$ is invariant under perturbations $\epsilon z$. When $\lvert \varphi(e)\cap E_+(x)\rvert =2$, the following lemma guarantees that corresponding tight constraints are also invariant under perturbations $\epsilon z$.
   
 \begin{lemma}
 \label{lem:prf3}
-Let $x$ be a $1/2$-integral point in $FSM(\hat{H},\hat\prec)$ and let $e$ be an edge in $E(\hat{H})$ such that $x(\varphi(e))=1$ and $\lvert \varphi(e)\rvert=2$. Then edge $e$ falls into the following four categories:
+Let $x$ be a $1/2$-integral point in $FSM(\hat{H},\hat\prec)$ and let $e$ be an edge in $E(\hat{H})$ such that $x(\varphi(e))=1$ and $\lvert \varphi(e)\cap E_+(x)\rvert =2$. Then edge $e$ falls into the following four categories:
 \begin{enumerate}[label={\emph{(}\roman*\emph{)}}]
 	\item $e$ is an edge from some $C\in E_{1/2}(x)$;
 	\item $e$ is a chord in some $C\in E_{1/2}(x)$;
@@ -403,7 +404,7 @@ By Lemma \ref{lem:prf3}, each $1/2$-integral point $x\in FSM(\hat{H},\hat\prec)$
 \begin{proof}[Proof of Theorem \ref{thm:main}]
 It suffices to show the equivalence among $(i)$, $(iii)$ and $(iv)$. Without loss of generality, assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. When $D$ is clique-acyclic, $D$ is associated with a preference system $(H,\prec)$. Hence $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}) where constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ form the Rothblum system $\pi(H,\prec)$.
 
-Assume $D$ is good. Then the preference system $(H,\prec)$ constructed from $D$ admits no odd cycle with cyclic preferences and so is $(\hat{H},\hat\prec)$, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices in $H$ and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct6}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ which defines $FK(D)$. Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subgraphs of $D$. Hence $(i)\implies (iii)$. Further notice that, by Theorem \ref{thm:ChenDing12} integrality of $FSM(\hat{H},\hat\prec)$ implies total dual integrality of $\pi(\hat{H},\hat\prec)$. Then total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3}), (\ref{constraints:4}) are redundant in $\sigma(D)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subgraphs of $D$. Therefore, $(i)\implies (iv)$.
+Assume $D$ is good. Then the preference system $(H,\prec)$ constructed from $D$ admits no odd cycles with cyclic preferences and so is $(\hat{H},\hat\prec)$, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices in $H$ and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct6}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ which defines $FK(D)$. Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subgraphs of $D$. Hence $(i)\implies (iii)$. Further notice that, by Theorem \ref{thm:ChenDing12} integrality of $FSM(\hat{H},\hat\prec)$ implies total dual integrality of $\pi(\hat{H},\hat\prec)$. Then total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3}), (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subgraphs of $D$. Therefore, $(i)\implies (iv)$.
 
 To see $(iii)\implies (i)$, we prove it by contradiction. Observe that strong kernel idealness of  $D$ implies the existence of kernels for any induced subgraphs of $D$. Let $D$ be a digraph such that D is strongly kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords and pseudochords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subgraph induced on this clique. There is no kernel for this induced subgraph, a contradiction. If $D$ contains a directed odd cycle without chords and pseudochords, we restrict ourselves to the subgraph induced on this directed odd cycle. There is no kernel for this induced subgraph either, a contradiction.
 
