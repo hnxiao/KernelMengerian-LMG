@@ -294,7 +294,7 @@ Let $(G,\prec)$ be a simple preference system. If $(G,\prec)$ admits no odd cycl
 Let $(G,\prec)$ be a simple preference system admitting no odd cycles with cyclic preferences.
 By Theorem \ref{thm:AbelRoth94}, $FSM(G,\prec)$ is $1/2$-integral.
 Let $x$ be a $1/2$-integral point in $FSM(G, \prec)$.
-Consider $E_{1/2}(x)$, which consists of vertex disjoint even cycles $C_1,C_2,\ldots,C_r$ with cyclic preferences. For $i=1,2,\ldots,r$, label vertices and edges of $C_i\in E_{1/2}(x)$ such that $C_i=v^i_1v^i_2\ldots v^i_{l}$ and $e^i_k\prec_{v^i_{k+1}} e^i_{k+1}$ for $k=1,2,\ldots,l$, where $e^i_k=v^i_{k}v^i_{k+1}$ and indices are taken modulo $l$. 
+Consider $E_{1/2}(x)$, which consists of even cycles $C_1,C_2,\ldots,C_r$ with cyclic preferences. For $i=1,2,\ldots,r$, label vertices and edges of $C_i\in E_{1/2}(x)$ such that $C_i=v^i_1v^i_2\ldots v^i_{l}$ and $e^i_k\prec_{v^i_{k+1}} e^i_{k+1}$ for $k=1,2,\ldots,l$, where $e^i_k=v^i_{k}v^i_{k+1}$ and indices are taken modulo $l$. 
 We remark that the parity of vertices and edges refers to the parity of their indices. Define $z\in \mathbb{R}^{E(G)}$ by
 \begin{equation*}
 z(e)=
@@ -305,84 +305,84 @@ z(e)=
 \end{cases}
 \end{equation*}
 We are going to exclude $x$ from vertices of $FSM(G, \prec)$ by adding perturbation $\epsilon z$ for small $\epsilon$ to $x$ and showing that $x\pm\epsilon z\in FSM(G,\prec)$. 
-Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbation $\epsilon z$ play a key role in our proof. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbation $\epsilon z$. It remains to show that perturbation $\epsilon z$ does not affect tight constraints in (\ref{stability constraints}) either. Let $e$ be an edge with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\cap E_+(x)\rvert \in\{1,2\}$. When $\lvert \varphi(e)\cap E_+(x)\rvert=1$, it is trivial. When $\lvert \varphi(e)\cap E_+(x)\rvert =2$, the following lemma guarantees that corresponding tight constraints are also invariant under perturbation $\epsilon z$.
+Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbation $\epsilon z$ play a key role here. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbation $\epsilon z$. It remains to show that perturbation $\epsilon z$ does not affect tight constraints in (\ref{stability constraints}) either. Let $e$ be an edge with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\cap E_+(x)\rvert \in\{1,2\}$. When $\lvert \varphi(e)\cap E_+(x)\rvert=1$, $x(e)=1$ follows, which is trivial. When $\lvert \varphi(e)\cap E_+(x)\rvert =2$, the following claim guarantees that corresponding tight constraints are also invariant under perturbation $\epsilon z$.
 
 \textbf{Claim:} The parity of dominating edges of $e$ doest not agree.
 
-We distinguish four cases.
+To prove this claim, we distinguish four cases.
 
 \textbf{Case 1.} Edge $e$ is an edge from some $C\in E_{1/2}(x)$. This case is trivial since $C$ admits cyclic preferences.
 
-\textbf{Case 2.} Edge $e$ is a chord in some $C\in E_{1/2}(x)$. We distinguish two subcases by the parity of endpoints of $e$ in $C$. We first show that $e$ cannot be a chord, endpoints of which have the same parity in $C$. Assume to the contrary that endpoints of chord $e$ have the same parity in $C$. Without loss of generality, let $e=v_{2i}v_{2j}$.
+\textbf{Case 2.} Edge $e$ is a chord in some $C\in E_{1/2}(x)$. We first show that endpoints of $e$ do not have the same parity in $C$. Assume to the contrary that $e=v_{2i}v_{2j}$.
 \begin{figure}
 \centering
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.85\linewidth]{KernelMengerianO-fig1a}
-  \caption{Subcase $1$}
+  \caption{}
   \label{fig1a}
 \end{subfigure}%
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.845\linewidth]{KernelMengerianO-fig1b}
-  \caption{Subcase $2$}
+  \caption{}
   \label{fig1b}
 \end{subfigure}
 \caption{Case 2}
 \end{figure}
-If $e_{2i}\prec e$, it follows that $e_{2i-1}\prec e$. Since $x(\varphi(e))=1$, $e\prec e_{2j-1}$ and $e\prec e_{2j}$ follow. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ form an odd cycle with cyclic preferences, a contradiction. Hence, $e\prec e_{2i}$.
+If $e_{2i}\prec e$, it follows that $e_{2i-1}\prec e$. Since $x(\varphi(e))=1$, $e\prec e_{2j-1}$ and $e\prec e_{2j}$ follow. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ consistute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2i}$ follows.
 
-Similarly, if $e_{2j}\prec e$, it follow that $e_{2j-1}\prec e$. Eqaulity $x(\varphi(e))=1$ implies that $e\prec e_{2i}$ and $e\prec e_{2i-1}$. However, $v_{2i} e_{2i} v_{2i+1} \ldots v_{2j-1} e_{2j-1} v_{2j} e v_{2i}$ form an odd cycle with cyclic preferences, a contradiction. Hence, $e\prec e_{2j}$. 
+Similarly, if $e_{2j}\prec e$, it follow that $e_{2j-1}\prec e$. Eqaulity $x(\varphi(e))=1$ implies that $e\prec e_{2i}$ and $e\prec e_{2i-1}$. However, $v_{2i} e_{2i} v_{2i+1} \ldots v_{2j-1} e_{2j-1} v_{2j} e v_{2i}$ constitute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2j}$ follows. 
 
-Now $e\prec e_{2i}$ and $e\prec e_{2j}$, it follows that $e_{2i-1}\prec e$ and $e_{2j-1}\prec e$ since $x(\varphi(e))=1$. But in this case the two odd cycles with cyclic preferences mentioned above occur at the same time. 
-
-Therefore, $e$ cannot be a chord whose endpoints have the same parity in $C$. It remains to show that in the latter case, dominating edges of chord $e$ have different parity. Without loss of generality, let $e=v_{2i} v_{2j+1}$.
-
-If $e_{2i}\prec e$ or $e_{2j+1}\prec e$, it follows that $e_{2i-1}\prec e$ or $e_{2j}\prec e$ respectively. Then $e$ is dominated by two consecutive edges from $C$, which is trivial.  So assume that $e\prec e_{2i}$ and $e\prec e_{2j+1}$. Since $x(\varphi(e))=1$, it follows that $e_{2i+1}\prec e$ and $e_{2j}\prec e$. Therefore, e is dominated by two nonadjacent edges with different parity.
+Now $e\prec e_{2i}$ and $e\prec e_{2j}$, it follows that $e_{2i-1}\prec e$ and $e_{2j-1}\prec e$ since $x(\varphi(e))=1$. But in this case two odd cycles with cyclic preferences mentioned above occur at the same time. 
+Therefore, endpoints of $e$ have different parity in $C$. Without loss of generality, let $e=v_{2i} v_{2j+1}$.
+If $e_{2i}\prec e$ or $e_{2j+1}\prec e$, it follows that $e_{2i-1}\prec e$ or $e_{2j}\prec e$ respectively. Then $e$ is dominated by two consecutive edges from $C$, which is trivial.  So assume that $e\prec e_{2i}$ and $e\prec e_{2j+1}$. Since $x(\varphi(e))=1$, it follows that $e_{2i+1}\prec e$ and $e_{2j}\prec e$. Hence e is dominated by two nonadjacent edges with different parity.
 
 \textbf{Case 3.} Edge $e$ is a hanging edge of some $C\in E_{1/2}(x)$ and dominated by two edges from $C$. This case is trivial.
 
 \textbf{Case 4.} Edge $e$ is a connecting edge bewteen $C_i$ and $C_j$ and dominated by one edge from $C_i$ and one edge from $C_j$ respectively, where $C_i, C_j \in E_{1/2}(x)$.
-For $k=1,2,\ldots,r$, let $F_k$ be the set of edges incident to $C_k$ in this case. 
+For $k=1,2,\ldots,r$, let $F_k$ be the set of edges incident to $C_k$ in case 4. 
 \begin{figure}
 \centering
 \includegraphics[scale=0.85]{KernelMengerianO-fig2}
 \caption{Case 4}
 \end{figure}
-To prove case 4, it suffices to work on a component of the induced subgraph $\cup_{i=1}^{i=r} F_i\cup C_i$. We apply induction on the number $\alpha$ of cycles from $E_{1/2}(x)$ in a component.
+It suffices to work on a component of the induced subgraph $\cup_{i=1}^{i=r} F_i\cup C_i$. We apply induction on the number $\alpha$ of cycles from $E_{1/2}(x)$ in a component.
 
 When $\alpha=1$, it is trivial.
-Hence assume the claim is true for components with $\alpha\geq 1$ cycles from $E_{1/2}(x)$. We consider a component with $\alpha +1$ cycles $C_1, C_2, \ldots, C_{\alpha}, C_{\alpha+1}$ from $E_{1/2}(x)$. We further require that $C_{\alpha+1}$ is not a cut vertex if we view these cycles as vertices in this component.
-Deleting $C_{\alpha+1}$ yields a new component with $\alpha$ cycles, and the claim applies to the resulting new component. It remains to show that edges in $F_{\alpha+1}$ satisfy the claim. If there exists edge $e\in F_{\alpha+1}$ violating the claim, we relabel vertices and edges in $C_{\alpha+1}$. After at most one relabeling, all edges in $F_{\alpha+1}$ satisfy the claim. We prove it by contradiction. Let $f_1,f_2 \in F_{\alpha +1}$ be edges such that $f_1$ satisfies the claim but $f_2$ violates the claim. For $i=1,2$, let $f_i=u_i w_i$, where $u_i$ is a vertex in the resulting new component and $w_i$ is a vertex in $C_{\alpha+1}$. By assumption, $u_1$ and $w_1$ have different parity and $u_2$ and $w_2$ have the same parity.
+Hence assume the claim holds for components of with $\alpha\geq 1$ cycles from $E_{1/2}(x)$. We consider a component with $\alpha +1$ cycles $C_1, \ldots, C_{\alpha}, C_{\alpha+1}$ from $E_{1/2}(x)$. 
+Without loss of generality, assume that deleting $C_{\alpha+1}$ yields a new component with $\alpha$ cycles.
+By induction hypothesis, the claim holds for the resulting component. 
+It remains to check edges in $F_{\alpha+1}$. If there exists an edge in $F_{\alpha+1}$ violating the claim, we relabel vertices and edges in $C_{\alpha+1}$. After at most one relabeling, all edges in $F_{\alpha+1}$ satisfy the claim. We prove it by contradiction. Let $f_1,f_2 \in F_{\alpha +1}$ be edges such that $f_1$ satisfies the claim but $f_2$ violates the claim. For $i=1,2$, let $f_i=u_i w_i$, where $u_i$ is the endpoint in the resulting component and $w_i$ is the endpoint in $C_{\alpha+1}$. By assumption, $u_1$ and $w_1$ have different parity and $u_2$ and $w_2$ have the same parity.
 
-Analogous to the definition of cycles with cyclic preferences, we call $P=v_1 v_2 \ldots v_l$ a \textit{$v_1 v_l$-path with linear preferences} if $v_iv_{i+1}\prec_{v_{i+1}}v_{i+1}v_{i+2}$ for $i=1,2,\ldots,l-2$. We show that for any two vertices in the resulting new component, there exists a path with linear preferences between them. Moreover, if they have the same parity, the path is of even length; if they have different parity, the path is of odd length. 
+Analogous to the definition of cycles with cyclic preferences, we call $P=v_1 v_2 \ldots v_l$ a \textit{$v_1 v_l$-path with linear preferences} if $v_iv_{i+1}\prec_{v_{i+1}}v_{i+1}v_{i+2}$ for $i=1,2,\ldots,l-2$. We show that for any two vertices in the resulting component, there exists a path with linear preferences between them. Moreover, if they have the same parity, the path is of even length; if they have different parity, the path is of odd length. 
 
 When vertices are from the same cycle $C_k$ where $k\in \{1,2,\ldots,\alpha\}$, it is trivial. Hence take $v^s \in C_s$ and $v^t\in C_t$ where $s,t\in \{1,2,\ldots,\alpha\}$ and $s\not=t$. The existence of paths with linear preferences is trivial. Without loss of generality, consider a $v^s v^t$-path with linear preferences. We apply induction on the number $\tau$ of cycles from $E_{1/2}(x)$ involved in the $v^s v^t$-path. Clearly, $\tau\geq 2$.
-When $\tau=2$. Take $v^s_+ v^t_-\in F_s\cap F_t$. Let $P_s$ be the path with linear preferences from $v^s$ to $v^s_+$ in $C_s$ and $P_t$ be the path with linear preferences from $v^t_-$ to $v^t$ in $C_t$. Then $P=v^sP_s v^s_+ v^t_- P_t v^t$ is a $v^s v^t$-path with linear preference. By assumption, $v^s_+$ and $v^t_-$ have different parity since $v^s_+ v^t_-\in F_s\cap F_t$. If $v^s$ and $v^t$ have the same parity, then lengths of $P_s$ and $P_t$ have different parity, implying that $P$ is of even length; if $v^s$ and $v^t$ have different parities, then lengths of $P_s$ and $P_t$ have the same parity, implying that $P$ is of odd length.
-Now assume $\tau\geq 2$. Let $C_{k_1},\ldots,C_{k_\tau},C_{k_{\tau+1}}$ be cycles from $E_{1/2}(x)$ involved along the $v^s v^t$-path with linear preferences. Take $v^{k_{\tau}}_+ v^{k_{\tau+1}}_- \in F_{k_{\tau}}\cap F_{k_{\tau+1}}$. Let $P_{s, k_{\tau}}$ denote the $v^s v^{k_{\tau}}_+$-path and $P_{k_{\tau},t}$ denote the $v^{k_{\tau}}_+ v^t$-path, both of which have linear preferences. Clearly, $P=v^sP_{s,k_\tau} v^{k_\tau}_+ P_{k_\tau, t} v^t$ is a $v^s v^t$-path with linear preferences. Since $P_{s, k_{\tau}}$ is a path involving only $\tau$ cycles and $P_{k_{\tau},t}$ is a path involving only two cycles, their lengths both depend on the parity of their endpoints. It is easy to see that $P$ is of even length when $v^s$ and $v^t$ have the same parity and $P$ is of odd length when $v^s$ and $v^t$ have different parity.
+When $\tau=2$. Take $v^s_+ v^t_-\in F_s\cap F_t$. Let $P_s$ be a path with linear preferences from $v^s$ to $v^s_+$ in $C_s$ and $P_t$ be a path with linear preferences from $v^t_-$ to $v^t$ in $C_t$. It follows that $v^sP_s v^s_+ v^t_- P_t v^t$ constitute a $v^s v^t$-path $P$ with linear preference. By assumption, $v^s_+$ and $v^t_-$ have different parity since $v^s_+ v^t_-\in F_s\cap F_t$. If $v^s$ and $v^t$ have the same parity, then lengths of $P_s$ and $P_t$ have different parity, implying that $P$ is of even length; if $v^s$ and $v^t$ have different parities, then lengths of $P_s$ and $P_t$ have the same parity, implying that $P$ is of odd length.
+Now assume $\tau\geq 2$. Let $C_{k_1},\ldots,C_{k_\tau},C_{k_{\tau+1}}$ be cycles from $E_{1/2}(x)$ involved along a $v^s v^t$-path with linear preferences. Take $v^{k_{\tau}}_+ v^{k_{\tau+1}}_- \in F_{k_{\tau}}\cap F_{k_{\tau+1}}$. Let $P_{s, k_{\tau}}$ denote a $v^s v^{k_{\tau}}_+$-path and $P_{k_{\tau},t}$ denote a $v^{k_{\tau}}_+ v^t$-path, both of which have linear preferences. Clearly, $P=v^sP_{s,k_\tau} v^{k_\tau}_+ P_{k_\tau, t} v^t$ is a $v^s v^t$-path with linear preferences. Since $P_{s, k_{\tau}}$ is a path involving only $\tau$ cycles and $P_{k_{\tau},t}$ is a path involving only two cycles, their lengths both depend on the parity of their endpoints. It follows that $P$ is of even length when $v^s$ and $v^t$ have the same parity and $P$ is of odd length when $v^s$ and $v^t$ have different parity.
 
-Hence there exists a path $P_\alpha$ with linear preferences between $u_1$ and $u_2$. Without loss of generality, let $P_\alpha$ be a $u_1 u_2$-path with linear preferences. There also exists a path $P_{\alpha+1}$ with linear preferences from $w_2$ to $w_1$. Now $u_1 P_\alpha u_2 f_2 w_2 P_{\alpha+1} w_1 f_1 u_1$ form a cycle $\hat{C}$ with cyclic preferences. We will show that $\hat{C}$ is an odd cycle with cyclic prefereces. 
+Hence there exists a $u_1 u_2$-path $P_\alpha$ with linear preferences and a $w_2 w_1$-path $P_{\alpha+1}$ with linear preferences. Now $u_1 P_\alpha u_2 f_2 w_2 P_{\alpha+1} w_1 f_1 u_1$ constitute a cycle with cyclic preferences. We show that this cycle is odd, which leads to a contradiction.
 
-If $u_1$ and $u_2$ have the same parity, then $w_1$ and $w_2$ have different parity. It follow that $P_\alpha$ is of even length and $P_{\alpha+1}$ is of odd length. Hence $\hat{C}$ is an odd cycle with cyclic preferences.
+If $u_1$ and $u_2$ have the same parity, then $w_1$ and $w_2$ have different parity, implying that $P_\alpha$ is of even length and $P_{\alpha+1}$ is of odd length;
+if $u_1$ and $u_2$ have different parity, then $w_1$ and $w_2$ have the same parity, implying that $P_\alpha$  is of odd length and $P_{\alpha+1}$ is of even length. 
+Either case yields an odd cycle with cyclic preferences.
 
-If $u_1$ and $u_2$ have different parity, then $w_1$ and $w_2$ have the same parity. It follows that $P_\alpha$  is of odd length and $P_{\alpha+1}$ is of even length. Hence $\hat{C}$ is an odd cycle with cyclic preferences again.
-
-Either case leads to an odd cycle with cyclic preferences, a contradiction.
-
-Hence $1/2$-integral points cannot be vertices of $FSM(G,\prec)$ as they can be perturbed by $\epsilon z$ for small $\epsilon$ without leaving $FSM(G,\prec)$ . By Theorem \ref{thm:AbelRoth94}, $SM(G,\prec)=FSM(G,\prec)$ follows. 
+Therefore $1/2$-integral points are not vertices of $FSM(G,\prec)$ as they can be perturbed by $\epsilon z$ for small $\epsilon$ without leaving $FSM(G,\prec)$ . By Theorem \ref{thm:AbelRoth94}, $SM(G,\prec)=FSM(G,\prec)$ follows. 
 \end{proof}
 
 Now we are ready to present a proof to our main theorem.
 
 \begin{proof}[Proof of Theorem \ref{thm:main}]
-It suffices to show the equivalence among $(i)$, $(iii)$ and $(iv)$. Without loss of generality, assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. When $D$ is clique-acyclic, $D$ is associated with a preference system $(H,\prec)$. Hence $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}) where constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ form the Rothblum system $\pi(H,\prec)$.
+It suffices to show the equivalence of $(i)$, $(iii)$ and $(iv)$. Without loss of generality, assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. When $D$ is good, $D$ is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, both of which admit no odd cycles with cyclic preferences, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
+Hence $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}), where constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ constitute the Rothblum system $\pi(H,\prec)$.
 
-Assume $D$ is good. Then the preference system $(H,\prec)$ constructed from $D$ admits no odd cycles with cyclic preferences and so is $(\hat{H},\hat\prec)$, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices in $H$ and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ which defines $FK(D)$. Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subgraphs of $D$. Hence $(i)\implies (iii)$. Further notice that, by Theorem \ref{thm:ChenDing12} integrality of $FSM(\hat{H},\hat\prec)$ implies total dual integrality of $\pi(\hat{H},\hat\prec)$. Then total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3}), (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subgraphs of $D$. Therefore, $(i)\implies (iv)$.
+By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$. Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subgraphs of $D$. Hence $(i)\implies (iii)$. 
 
-To see $(iii)\implies (i)$, we prove it by contradiction. Observe that strong kernel idealness of  $D$ implies the existence of kernels for any induced subgraphs of $D$. Let $D$ be a digraph such that D is strongly kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords and pseudochords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subgraph induced on this clique. There is no kernel for this induced subgraph, a contradiction. If $D$ contains a directed odd cycle without chords and pseudochords, we restrict ourselves to the subgraph induced on this directed odd cycle. There is no kernel for this induced subgraph either, a contradiction.
+By Theorem \ref{thm:ChenDing12}, integrality of $FSM(\hat{H},\hat\prec)$ implies total dual integrality of $\pi(\hat{H},\hat\prec)$. Total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subgraphs of $D$. Hence $(iii)\implies (iv)$.
 
-To see $(iv)\implies (i)$, notice that $(iv)\implies (iii)$ is a directly result from a theorem by Edmonds and Giles \cite{EdmoGile77}.  Hence $(iv)\implies (i)$ follows from $(iii)\implies (i)$.
+By a theorem of Edmonds and Giles \cite{EdmoGile77}, $(iv)\implies (iii)$ follows directly.
 
+To see $(iii)\implies (i)$, we prove it by contradiction. Observe that strong kernel idealness of  $D$ implies the existence of kernels for any induced subgraphs of $D$. Let $D$ be a digraph such that D is strongly kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords nor pseudochords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subgraph induced on this clique. There is no kernel for this induced subgraph, a contradiction. If $D$ contains a directed odd cycle without chords nor pseudochords, we restrict ourselves to the subgraph induced on this directed odd cycle. There is no kernel for this induced subgraph either, a contradiction.
 \end{proof}
 
 
