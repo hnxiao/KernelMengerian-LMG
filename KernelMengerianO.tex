@@ -2,8 +2,6 @@
 \usepackage{fullpage}
 \usepackage{authblk}
 \usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{tkz-graph}
  \usepackage{jabbrv}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -11,14 +9,9 @@
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-\setlist[enumerate]{itemsep=-1mm}
 \usepackage{caption}
 \usepackage{subcaption}
 \captionsetup{compatibility=false} %This is to fix the issue that 'subcaption' package does not work correctly.
-%\usepackage[ruled,vlined]{algorithm2e}
-\usetikzlibrary{decorations.pathmorphing,arrows}
-\usetikzlibrary{decorations.markings}
-\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}} 
 
 \newtheorem{theorem}{Theorem}%[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -89,7 +82,7 @@ In this paper we prove that a digraph is strongly kernel ideal if and only if it
 
 \textbf{AMS subject classifications:} 90C10, 90C27, 90C57.
 
-\textbf{Key words:} kernel, stable matching, integral polytope, total dual integrality.
+\textbf{Key words:} kernel, stable matching, line graph, integral polytope, total dual integrality.
 
 \newpage
 \section{Introduction}
