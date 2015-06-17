@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{tkz-graph}
+ \usepackage{jabbrv}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -60,13 +61,18 @@
 \topmargin 30pt \textheight 21.0 truecm \textwidth 16.0 truecm
 
 \title{{\Large\bf  Strongly Kernel Mengerian Orientations of Line Multigraphs}}
+\date{}
+\author{Han Xiao \qquad Wenan Zang\footnote{wzang@maths.hku.hk}}
 
+\affil{Department of Mathematics, 
 
-\author{}
+The University of Hong Kong,
+
+Hong Kong, China
+}
+
 
 \begin{document}
-
-\date{\today}
 
 \numberwithin{equation}{section}
 
@@ -78,10 +84,14 @@
 \begin{abstract}
 Given a digraph $D$, let $\sigma(D)$ denote the linear system consisting of domination, independence and nonnegativity constraints, and $FK(D)$ denote the set of all solutions to $\sigma(D)$. We call $D$ strongly kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and strongly kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. We also call $D$ good if it is clique-acyclic and each directed odd cycle has a chord.
 
-In this paper, we prove that a digraph is strongly kernel ideal iff it is strongly kernel Mengerian iff it is good. Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
-
+In this paper we prove that a digraph is strongly kernel ideal if and only if it is strongly kernel Mengerian if and only if it is good. Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
 \end{abstract}
 
+\textbf{AMS subject classifications:} 90C10, 90C27, 90C57.
+
+\textbf{Key words:} kernel, stable matching, integral polytope, total dual integrality.
+
+\newpage
 \section{Introduction}
 \label{intro}
 An undirected graph is called \textit{simple} if it contains neither loops nor parallel edges and is called a \textit{multigraph} if it contains no loops but parallel edges are allowed. 
@@ -386,7 +396,7 @@ To see $(iii)\implies (i)$, we prove it by contradiction. Observe that strong ke
 \end{proof}
 
 
-\bibliographystyle{siam}
+\bibliographystyle{jabbrv_siam}
 \bibliography{KernelMengerianO}
 \nocite{Schr86}
 
