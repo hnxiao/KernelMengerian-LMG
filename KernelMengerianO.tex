@@ -78,7 +78,6 @@ Hong Kong, China
 
 \begin{abstract}
 Given a digraph $D$, let $\sigma(D)$ denote the linear system consisting of domination, independence and nonnegativity constraints, and $FK(D)$ denote the set of all solutions to $\sigma(D)$. We call $D$ strongly kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and strongly kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. We also call $D$ good if it is clique-acyclic and each directed odd cycle has a chord.
-
 In this paper we prove that a digraph is strongly kernel ideal if and only if it is strongly kernel Mengerian if and only if it is good. Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
 
 \hfill
@@ -316,7 +315,7 @@ z(e)=
 \end{cases}
 \end{equation*}
 We are going to exclude $x$ from vertices of $FSM(G, \prec)$ by adding perturbation $\epsilon z$ for small $\epsilon$ to $x$ and showing that $x\pm\epsilon z\in FSM(G,\prec)$. 
-Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbation $\epsilon z$ play a key role here. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbation $\epsilon z$. It remains to show that perturbation $\epsilon z$ does not affect tight constraints in (\ref{stability constraints}) either. Let $e$ be an edge with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\cap E_+(x)\rvert \in\{1,2\}$. When $\lvert \varphi(e)\cap E_+(x)\rvert=1$, $x(e)=1$ follows, which is trivial. When $\lvert \varphi(e)\cap E_+(x)\rvert =2$, we claim that the parity of dominating edges in $E_{1/2}(x)$ of $e$ doest not agree.
+Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbation $\epsilon z$ play a key role here. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbation $\epsilon z$. It remains to show that perturbation $\epsilon z$ does not affect tight constraints in (\ref{stability constraints}) either. Let $e$ be an edge with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\cap E_+(x)\rvert \in\{1,2\}$. When $\lvert \varphi(e)\cap E_+(x)\rvert=1$, $x(e)=1$ follows, which is trivial. When $\lvert \varphi(e)\cap E_+(x)\rvert =2$, we claim that the parity of dominating edges in $E_{1/2}(x)$ of $e$ does not agree (relabeling vertices and edges in $E_{1/2}(x)$ if necessary).
 Hence corresponding tight constraints in (\ref{stability constraints}) are also invariant under perturbation $\epsilon z$.
 
 To justify this claim, we distinguish four cases.
@@ -365,9 +364,9 @@ Without loss of generality, assume that deleting $C_{\alpha+1}$ yields a new com
 By induction hypothesis, the claim holds for the resulting component. 
 It remains to check edges in $F_{\alpha+1}$. If there exists an edge in $F_{\alpha+1}$ violating the claim, we relabel vertices and edges in $C_{\alpha+1}$. After at most one relabeling, all edges in $F_{\alpha+1}$ satisfy the claim. We prove it by contradiction. Let $f_1,f_2 \in F_{\alpha +1}$ be edges such that $f_1$ satisfies the claim but $f_2$ violates the claim. For $i=1,2$, let $f_i=u_i w_i$, where $u_i$ is the endpoint in the resulting component and $w_i$ is the endpoint in $C_{\alpha+1}$. By assumption, $u_1$ and $w_1$ have different parity and $u_2$ and $w_2$ have the same parity.
 Analogous to the definition of cycles with cyclic preferences, we call path $P=v_1 v_2 \ldots v_l$ a \textit{$v_1 v_l$-path with linear preferences} if $v_iv_{i+1}\prec_{v_{i+1}}v_{i+1}v_{i+2}$ for $i=1,2,\ldots,l-2$. Clearly, for any two vertices in the same component, there exists a path with linear preferences between them.
-Hence there exists a $u_1 u_2$-path $P_\alpha$ with linear preferences and a $w_2 w_1$-path $P_{\alpha+1}$ with linear preferences.
+Hence there exists a $u_1 u_2$-path $P_\alpha$ and a $w_2 w_1$-path $P_{\alpha+1}$, both of which admit linear preferences.
 Moreover, $u_1 P_\alpha u_2 f_2 w_2 P_{\alpha+1} w_1 f_1 u_1$ constitute a cycle with cyclic preferences. We justify this cycle is odd by 
-showing that $u_1 u_2$-path $P_\alpha$ is even (\textit{resp.} odd) if $u_1$ and $u_2$ have the same (\textit{resp.} different) parity.
+showing that the $u_1 u_2$-path $P_\alpha$ is even (\textit{resp.} odd) if $u_1$ and $u_2$ have the same (\textit{resp.} different) parity.
 
 If $u_1$ and $u_2$ are from the same cycle $C_k$, where $k\in \{1,2,\ldots,\alpha\}$, it is trivial. Hence assume $u_1=v^s \in C_s$ and $u_2=v^t\in C_t$, where $s,t\in \{1,2,\ldots,\alpha\}$ and $s\not=t$. We apply induction on the number $\tau$ of cycles from $E_{1/2}(x)$ involved in $P_\alpha$. Clearly, $\tau\geq 2$.
 When $\tau=2$. Take $v^s_+ v^t_-\in F_s\cap F_t$ on $P_\alpha$. Let $P_s$ be the part of $P_\alpha$ from $v^s$ to $v^s_+$ in $C_s$ and $P_t$ be the part of $P_\alpha$ from $v^t_-$ to $v^t$ in $C_t$. It follows that $v^sP_s v^s_+ v^t_- P_t v^t$ constitute $P_\alpha$. By assumption, $v^s_+$ and $v^t_-$ have different parity since $v^s_+ v^t_-\in F_s\cap F_t$. If $v^s$ and $v^t$ have the same parity, then $P_s$ and $P_t$ have different parity, implying that $P_\alpha$ is even; if $v^s$ and $v^t$ have different parity, then $P_s$ and $P_t$ have the same parity, implying that $P_\alpha$ is odd.
