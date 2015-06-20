@@ -53,9 +53,9 @@
 \marginparwidth 0pt \oddsidemargin 0pt \evensidemargin 0pt
 \topmargin 30pt \textheight 21.0 truecm \textwidth 16.0 truecm
 
-\title{{\Large\bf  Strongly Kernel Mengerian Orientations of Line Multigraphs}}
+\title{{\Large\bf  On Kernel Mengerian Orientations of Line Multigraphs}}
 \date{}
-\author{Han Xiao \qquad Wenan Zang\footnote{wzang@maths.hku.hk}}
+\author{Han Xiao \footnote{hxiao.math@connect.hku.hk}}
 
 \affil{Department of Mathematics, 
 
@@ -77,8 +77,9 @@ Hong Kong, China
 \hfill
 
 \begin{abstract}
-Given a digraph $D$, let $\sigma(D)$ denote the linear system consisting of domination, independence and nonnegativity constraints, and $FK(D)$ denote the set of all solutions to $\sigma(D)$. We call $D$ strongly kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and strongly kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. We also call $D$ good if it is clique-acyclic and each directed odd cycle has a chord.
-In this paper we prove that a digraph is strongly kernel ideal if and only if it is strongly kernel Mengerian if and only if it is good. Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
+We present a polyhedral description of kernels in orientations of line multigraphs.
+Given a digraph $D$, let $\sigma(D)$ denote the linear system consisting of domination, independence and nonnegativity constraints, and $FK(D)$ denote the set of all solutions to $\sigma(D)$. We call $D$ kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. We also call $D$ good if it is clique-acyclic and each directed odd cycle has a chord.
+We show that an orientation of a line multigraph is kernel ideal if and only if it is kernel Mengerian if and only if it is good. Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
 
 \hfill
 
@@ -122,7 +123,7 @@ x(v) &\geq 0 &\qquad &\forall ~ v~&\in V, \label{vertex nonnegativity}
 where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N_D^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the set of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ to $\sigma(D)$.
 
 The \textit{kernel polyotpe} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ to $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
-We call $D$ \textit{strongly kernel ideal} if $FK(D')$ is integral for each induced subgraph $D'$ of $D$, and \textit{strongly kernel Mengerian} if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$.
+We call $D$ \textit{kernel ideal} if $FK(D')$ is integral for each induced subgraph $D'$ of $D$, and \textit{kernel Mengerian} if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$.
 
 As described in Egres Open \cite{Egres}, the polyhedral description of kernels remains open. Chen \textit{et al.} \cite{ChenChen16} attained a polyhedral characterization of kernels by replacing clique constraints $x(Q)\leq 1$ for $Q\in\mathcal{Q}$ with independence constraints $x(u)+x(v)\leq 1$ for $(u,v)\in A$. In this paper we show that kernels in digraph $D$ can be thoroughly characterized by polyhedral approaches if $D$ is an orientation of line multigraphs.
 
@@ -132,8 +133,8 @@ Let $G$ be a line multigraph and $D$ be an orientation of $G$. Then the followin
 \begin{enumerate}[label={\emph{(}\roman*\emph{)}}]
 	\item $D$ is good;
 	\item $D$ is kernel perfect;
-	\item $D$ is strongly kernel ideal;
-	\item $D$ is strongly kernel Mengerian.
+	\item $D$ is kernel ideal;
+	\item $D$ is kernel Mengerian.
 \end{enumerate}
 \end{theorem}
 
@@ -391,7 +392,7 @@ By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integra
 
 By a theorem of Edmonds and Giles \cite{EdmoGile77}, $(iv)\implies (iii)$ follows directly.
 
-To see $(iii)\implies (i)$, we prove it by contradiction. Observe that strong kernel idealness of  $D$ implies the existence of kernels for any induced subgraphs of $D$. Let $D$ be a digraph such that D is strongly kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords nor pseudochords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subgraph induced on this clique. There is no kernel for this induced subgraph, a contradiction. If $D$ contains a directed odd cycle without chords nor pseudochords, we restrict ourselves to the subgraph induced on this directed odd cycle. There is no kernel for this induced subgraph either, a contradiction.
+To see $(iii)\implies (i)$, we prove it by contradiction. Observe that strong kernel idealness of  $D$ implies the existence of kernels for any induced subgraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords nor pseudochords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subgraph induced on this clique. There is no kernel for this induced subgraph, a contradiction. If $D$ contains a directed odd cycle without chords nor pseudochords, we restrict ourselves to the subgraph induced on this directed odd cycle. There is no kernel for this induced subgraph either, a contradiction.
 \end{proof}
 
 
