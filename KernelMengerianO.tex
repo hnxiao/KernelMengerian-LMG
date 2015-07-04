@@ -186,19 +186,22 @@ Let $(G,\prec)$ be a simple preference system. Then $\pi(G,\prec)$ is totally du
 \end{theorem}
 
 \section{Reductions}
-To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this paper, we assume that $D$ is an orientation of a line multigraph $L(H)$ such that any two distinct vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
+To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this paper, we assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
 
 Kernels are closely related to stable matchings. Let $D$ be a clique-acyclic orientation of line multigraph $L(H)$. 
 For any two adjacent edges $e$ and $f$ in $H$, define $e\prec_v f$ if $(e,f)$ is an arc in $D$, where $v$ is a common end of $e$ and $f$.
 Hence each clique-acyclic orientation $D$ of line multigraph $L(H)$ is associated with a preference system $(H,\prec)$.
-Recall that $\sigma(D)$ denotes the linear system which defines $FK(D)$. Consequently, $\sigma(D)$ can be interpreted in terms of preference system $(H,\prec)$. The equivalence of constraints (\ref{vertex nonnegativity}) and constraints (\ref{edge nonnegativity}) follows directly. Constraints (\ref{domination constraints}) can be viewed as constraints (\ref{stability constraints}) because of the one to one correspondence between dominating vertex set $\{v\}\cup N^+_D(v)$ for $v\in V(D)$ and stable edge set $\varphi(e)$ for $e\in E(H)$.
+Recall that $\sigma(D)$ denotes the linear system which defines $FK(D)$. 
+Consequently, $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$. 
+The equivalence of constraints (\ref{vertex nonnegativity}) and constraints (\ref{edge nonnegativity}) follows directly. Constraints (\ref{domination constraints}) can be viewed as constraints (\ref{stability constraints}) because of the one to one correspondence between dominating vertex set $\{v\}\cup N^+_D(v)$ for $v\in V(D)$ and stable edge set $\varphi(e)$ for $e\in E(H)$.
 Observe that cliques of $D$ correspond to three types of edge sets in $H$:
 \begin{itemize}
 \item $\delta(v)$ for $v\in V(H)$,
 \item nontrivial subsets of $\delta(v)$ for $v\in V(H)$,
 \item complete subgraphs of $H$ induced on three vertices (with parallel edges allowed).
 \end{itemize}
-Hence constraints (\ref{independence constraints}) can be viewed as constraints (\ref{matching constraints}) together with some extra constraints on $(H,\prec)$. Let $\mathcal{O}(H)$ denote the set of all complete subgraphs of $H$ induced on three vertices. Then $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ by the following inequalities:
+Hence constraints (\ref{independence constraints}) can be viewed as constraints (\ref{matching constraints}) together with some extra constraints on $(H,\prec)$. Let $\mathcal{O}(H)$ denote the set of all complete subgraphs of $H$ induced on three vertices. 
+Then $\sigma(D)$ can be reformulated in terms of preference system $(H,\prec)$:
 \begin{alignat}{4}
 x(\varphi(e)) &\geq 1 &\qquad &\forall ~e &\in E(H),\label{constraints:1}\\
 x(\delta(v)) &\leq 1 &\qquad &\forall ~v &\in V(H),\label{constraints:2}\\
@@ -232,11 +235,11 @@ be two linear systems, where $\bar{A}$ is obtained from $A$ by duplicating some 
 \end{lemma}
 \begin{proof}
 It suffices to prove that the theorem holds for $\bar{A}$ with one duplicate column.
-Let $\bar{x}=(\bar{x}_1,\ldots,\bar{x}_{n+1})\in\mathbb{R}^{n+1}$ and $\bar{A}=(\bar{a}_1,\ldots,\bar{a}_{n+1})=(A,a_{k})$, where $a_k$ is the $k$th column of $A$. Let $\bar{c}=(\bar{c}_1,\ldots,\bar{c}_{n+1})\in \mathbb{Z}^{n+1}$ be an arbitrary integral vector such that $\max\{\bar{c}^T \bar{x}: \bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$ is finite. 
+Let $\bar{x}:=(\bar{x}_1,\ldots,\bar{x}_{n+1})\in\mathbb{R}^{n+1}$ and $\bar{A}:=(\bar{a}_1,\ldots,\bar{a}_{n+1})=(A,a_{k})$, where $a_k$ is the $k$th column of $A$. Let $\bar{c}:=(\bar{c}_1,\ldots,\bar{c}_{n+1})\in \mathbb{Z}^{n+1}$ be an arbitrary integral vector such that $\max\{\bar{c}^T \bar{x}: \bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$ is finite. 
 
 Let $\hat{c}\in \mathbb{Z}^n$ be defined by
 \begin{equation*}
-\hat{c}_i=
+\hat{c}_i:=
 \begin{cases}
 \bar{c}_i & i\not=k,\\
 \max\{\bar{c}_k, \bar{c}_{n+1}\} & i=k,
@@ -244,13 +247,13 @@ Let $\hat{c}\in \mathbb{Z}^n$ be defined by
 \end{equation*}
 and $\hat{x}\in \mathbb{R}^n$ be defined by
 \begin{equation*}
-\hat{x}_i=
+\hat{x}_i:=
 \begin{cases}
 \bar{x}_i & i\not=k,\\
 \bar{x}_k+\bar{x}_{n+1} & i=k.
 \end{cases}
 \end{equation*}
-Clearly,  $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. We claim that equality always holds in this inequality. Given an arbitrary optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, define $\bar{x}^*$ by $\bar{x}^*_i=\hat{x}^*_i$ for $i\not=k,n+1$, if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k=\hat{x}^*_k$ and $\bar{x}^*_{n+1}=0$, otherwise $\bar{x}^*_k=0$ and $\bar{x}^*_{n+1}=\hat{x}^*_k$. It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Hence equality follows.
+Clearly,  $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. We claim that equality always holds in this inequality. Given an arbitrary optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, define $\bar{x}^*$ by $\bar{x}^*_i:=\hat{x}^*_i$ for $i\not=k,n+1$, if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k:=\hat{x}^*_k$ and $\bar{x}^*_{n+1}:=0$, otherwise $\bar{x}^*_k:=0$ and $\bar{x}^*_{n+1}:=\hat{x}^*_k$. It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Hence equality follows.
 
 Since $Ax\leq b$ is TDI$/k$, there exists a dual optimal $1/k$-integral solution $y^*$ to $\max\{\hat{c}^T\hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$ such that $(y^*)^T b=\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, $(y^*)^T A\geq \hat{c}^T$ and $y^*\geq 0$. It follows that
 \begin{equation*}
@@ -280,10 +283,10 @@ $FSM(H,\prec)$ is integral if and only if $FSM(\hat{H},\hat\prec)$ is integral.
 For simplicity, assume that $H=(V,E)$ and $\hat{H}=(V,\hat{E})$.
 
 We prove the only if part by showing that $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$. 
-Let $\hat{x}$ be a point in $FSM(\hat{H},\hat\prec)$ and define $x=(\hat{x},0)\in \mathbb{R}^{\hat{E}}\times \mathbb{R}^{E-\hat{E}}$. To show that $x\in FSM(H,\prec)$, it suffices to prove that $x(\varphi(e))\geq 1$ for $e\in E-\hat{E}$. Let $e'\in \hat{E}$ be the edge parallel with $e\in E-\hat{E}$. By Lemma \ref{lem:reduct1}, $x(\varphi(e))=x(\varphi(e'))=\hat{x}(\varphi(e'))\geq 1$. Hence $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$.
+Let $\hat{x}$ be a point in $FSM(\hat{H},\hat\prec)$ and define $x:=(\hat{x},0)\in \mathbb{R}^{\hat{E}}\times \mathbb{R}^{E-\hat{E}}$. To show that $x\in FSM(H,\prec)$, it suffices to prove that $x(\varphi(e))\geq 1$ for $e\in E-\hat{E}$. Let $e'\in \hat{E}$ be the edge parallel with $e\in E-\hat{E}$. By Lemma \ref{lem:reduct1}, $x(\varphi(e))=x(\varphi(e'))=\hat{x}(\varphi(e'))\geq 1$. Hence $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$.
 
-We prove the if part by showing that each vertex of $FSM(H,\prec)$ can be obtained from some vertex of $FSM(\hat{H},\hat\prec)$ by adding some zero entries. Let $x$ be a vertex of $FSM(H,\prec)$. Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e)=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e)=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e)=\hat{x}_i(e)$ and $x_i(e')=0$, otherwise $x_i(e)=0$ and $x_i(e')=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. Furthermore, $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$. Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$. Let $y$ and $z$ be duplicates of $x$ and set $y (e)=z(e')=1$ and $y (e')=z(e)=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the assumption that $x$ is a vertex.
-Now since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e)=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e)=\hat{x}(e)$ and $x(e')=0$, otherwise $x(e)=0$ and $x(e')=\hat{x}(e)$. 
+We prove the if part by showing that each vertex of $FSM(H,\prec)$ can be obtained from some vertex of $FSM(\hat{H},\hat\prec)$ by adding some zero entries. Let $x$ be a vertex of $FSM(H,\prec)$. Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e):=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e):=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e):=\hat{x}_i(e)$ and $x_i(e'):=0$, otherwise $x_i(e):=0$ and $x_i(e'):=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. Furthermore, $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$. Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$. Let $y$ and $z$ be duplicates of $x$ and set $y (e):=z(e'):=1$ and $y (e'):=z(e):=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the assumption that $x$ is a vertex.
+Now since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e):=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e):=\hat{x}(e)$ and $x(e'):=0$, otherwise $x(e):=0$ and $x(e'):=\hat{x}(e)$. 
 \end{proof}
 
 We end this section with a summary. Let $D$ be an orientation of line multigraph $L(H)$. When $D$ is clique-acyclic, it is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
@@ -310,7 +313,7 @@ Let $x$ be a $1/2$-integral point in $FSM(G, \prec)$.
 Consider $E_{1/2}(x)$, which consists of even cycles $C_1,C_2,\ldots,C_r$ with cyclic preferences. For $i=1,2,\ldots,r$, label vertices and edges of $C_i\in E_{1/2}(x)$ such that $C_i=v^i_1v^i_2\ldots v^i_{l}$ and $e^i_k\prec_{v^i_{k+1}} e^i_{k+1}$ for $k=1,2,\ldots,l$, where $e^i_k=v^i_{k}v^i_{k+1}$ and indices are taken modulo $l$. 
 We remark that the parity of vertices and edges refers to the parity of their indices. Define $z\in \mathbb{R}^{E(G)}$ by
 \begin{equation*}
-z(e)=
+z(e):=
 \begin{cases}
 1 & e\text{ is an even edge in some }C \in E_{1/2}(x),\\
 -1 & e\text{ is an odd edge in some }C \in E_{1/2}(x),\\
