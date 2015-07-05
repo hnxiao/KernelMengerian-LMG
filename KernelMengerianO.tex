@@ -100,20 +100,20 @@ An undirected graph is called \textit{simple} if it contains neither loops nor p
 
 Let $G$ be an undirected graph.
 The \textit{line graph} of $G$, denoted by $L(G)$, is an undirected graph that represents the adjacency of edges of $G$. 
-We call $L(G)$ the \textit{line multigraph} of $G$ if any two vertices in $L(G)$ are joined by as many edges as the number of their common ends in $G$. 
-Observe that there exist at most two parallel edges between any two vertices in a line multigraph.
+In particular, each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
+We call $L(G)$ the \textit{line multigraph} of $G$ if any two vertices of $L(G)$ are connected by as many edges as the number of their common ends in $G$. 
 
 Let $D=(V,A)$ be a digraph. 
 For $U\subseteq V$, We call $U$ an \textit{independent} set of $D$ if no two vertices in $U$ are connected by an arc, call $U$ a \textit{dominating} set of $D$ if for each vertex $v\not\in U$, there is an arc from $v$ to $U$, and call $U$ a \textit{kernel} of $D$ if it is both independent and dominating. 
 We call $D$ \textit{kernel perfect} if each of its induced subgraphs has a kernel.
-A \textit{clique} of $D$ is a subset of $V$ such that every two distinct vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for every clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and each directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$}. 
+A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$}. 
 
 \begin{theorem}[Borodin \textit{et al.} \cite{BoroKost98}]
 \label{thm:BoroKost98}
 Let $G$ be a line multigraph. The orientation $D$ of $G$ is kernel perfect if and only if it is good.
 \end{theorem}
 
-A subset $P$ of $\mathbb{R}^n$ is called a \textit{polytope} if it is the convex hull of finitely many vectors in $\mathbb{R}^n$. A point $x$ in $P$ is called a \textit{vertex} or an \textit{extreme point} if there exist no distinct points $y$ and $z$ in $P$ such that $x=\alpha y+ (1-\alpha)z$ for $0<\alpha<1$. It is well known that $P$ is the convex hull of its vertices, and that there exists a linear system $Ax\leq b$ such that $P=\{x\in\mathbb{R}^n:Ax\leq b\}$. Polytope $P$ is called $1/k$-\textit{integral} if its vertices are $1/k$-integral vectors, where $k\in\mathbb{N}$. By a theorem in linear programming, $P$ is $1/k$-integral if and only if $\max\{c^T x:Ax\leq b\}$ has an optimal $1/k$-integral solution for every integral vector $c$ for which the optimum is finite. If, instead, $\max\{c^T x:Ax\leq b\}$ has a dual optimal $1/k$-integral solution, we call linear system $Ax\leq b$ \textit{totally dual $1/k$-integral} (TDI$/k$).
+A subset $P$ of $\mathbb{R}^n$ is called a \textit{polytope} if it is the convex hull of finitely many vectors in $\mathbb{R}^n$. A point $x$ in $P$ is called a \textit{vertex} or an \textit{extreme point} if there exist no distinct points $y$ and $z$ in $P$ such that $x=\alpha y+ (1-\alpha)z$ for $0<\alpha<1$. It is well known that $P$ is the convex hull of its vertices, and that there exists a linear system $Ax\leq b$ such that $P=\{x\in\mathbb{R}^n:Ax\leq b\}$. We say $P$ is $1/k$-\textit{integral} if its vertices are $1/k$-integral vectors, where $k\in\mathbb{N}$. By a theorem in linear programming, $P$ is $1/k$-integral if and only if $\max\{c^T x:Ax\leq b\}$ has an optimal $1/k$-integral solution for every integral vector $c$ for which the optimum is finite. If, instead, $\max\{c^T x:Ax\leq b\}$ has a dual optimal $1/k$-integral solution, we say $Ax\leq b$ is \textit{totally dual $1/k$-integral} (TDI$/k$).
 It is easy to verify that $Ax\leq b$ is TDI$/k$ if and only if $Bx\leq b$ is TDI, where $B=A/k$ and $k\in\mathbb{N}$. Thus from a theorem of Edmonds and Giles \cite{EdmoGile77}, we deduce that if $Ax\leq b$ is TDI$/k$ and $b$ is integal, then $P=\{x\in\mathbb{R}^n:Ax\leq b\}$ is $1/k$-integral.
 
 Let $\sigma(D)$ denote the linear system consisting of the following inequalities:
@@ -123,7 +123,6 @@ x(Q)&\leq 1 &\qquad &\forall ~ Q &\in \mathcal{Q}, \label{independence constrain
 x(v) &\geq 0 &\qquad &\forall ~ v~&\in V, \label{vertex nonnegativity}
 \end{alignat}
 where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N_D^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the set of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ to $\sigma(D)$.
-
 The \textit{kernel polyotpe} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ to $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
 We call $D$ \textit{kernel ideal} if $FK(D')$ is integral for each induced subgraph $D'$ of $D$, and \textit{kernel Mengerian} if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$.
 
@@ -146,16 +145,20 @@ Our theorem strengthens the result of Borodin \textit{et al.} and generalizes th
 
 \section{Preliminaries}
 \label{pre}
-Let $G=(V,E)$ be an undirected graph. For $v\in V$, let $\delta(v)$ be the set of all edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$. We call $\prec_v$ the \emph{preference} of $v$ and say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\preceq_v f$ for $e,f\in \delta(v)$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$. We call $(G,\prec)$ a \emph{preference system} and call $(G,\prec)$ \emph{simple} if $G$ is simple. Let $M$ be a matching of $G$. We call $M$ \emph{stable} in $(G,\prec)$ if each edge of $G$ is dominated by some edge in $M$.
+Let $G=(V,E)$ be an undirected graph. 
+For $v\in V$, let $\delta(v)$ denote the set of all edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$. 
+We call $\prec_v$ the \emph{preference} of $v$ and say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\preceq_v f$ for $e,f\in \delta(v)$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$.
+We call $(G,\prec)$ a \emph{preference system} and say $(G,\prec)$ is \emph{simple} if $G$ is simple.
+For $e\in E$, let $\varphi(e)$ denote the set of all edges that dominate $e$ in $(G,\prec)$.
+Let $M$ be a matching of $G$. We say $M$ is \emph{stable} in $(G,\prec)$ if every edge of $G$ is dominated by some edge in $M$.
 
-Let $(G,\prec)$ be a preference system. For $e\in E$, let $\varphi(e)$ denote the set of all edges of $G$ that dominate $e$. Let $\pi(G,\prec)$ be the linear system consisting of the following inequalites:
+Let $\pi(G,\prec)$ denote the linear system consisting of the following inequalites:
 \begin{alignat}{3}
 x(\varphi(e)) &\geq 1 &\qquad \forall ~e &\in E,\label{stability constraints}\\
 x(\delta(v)) &\leq 1 &\qquad \forall ~v &\in V,\label{matching constraints}\\
 x(e) &\geq 0 &\qquad \forall ~e &\in E.\label{edge nonnegativity}
 \end{alignat}
 As observed by Abeledo and Rothblum \cite{AbelRoth94}, incidence vectors of stable matchings of $(G,\prec)$ are precisely integral solutions $x\in \mathbb{Z}^E$ to $\pi(G,\prec)$.
-
 The \textit{stable matching polytope}, denoted by $SM(G,\prec)$, is the convex hull of incidence vectors of all stable matchings of $(G,\prec)$. The \textit{fractional stable matching polytope}, denoted by $FSM(G,\prec)$, is the set of all solutions $x\in \mathbb{R}^E$ to $\pi(G,\prec)$. Clearly, $SM(G,\prec)\subseteq FSM(G,\prec)$. 
 
 \begin{theorem}[Rothblum \cite{Roth92}]
@@ -188,8 +191,8 @@ Let $(G,\prec)$ be a simple preference system. Then $\pi(G,\prec)$ is totally du
 \section{Reductions}
 To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this paper, we assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
 
-Kernels are closely related to stable matchings. Let $D$ be a clique-acyclic orientation of line multigraph $L(H)$. 
-For any two adjacent edges $e$ and $f$ in $H$, define $e\prec_v f$ if $(e,f)$ is an arc in $D$, where $v$ is a common end of $e$ and $f$.
+Kernels are closely related to stable matchings.
+When $D$ is clique-acyclic, let $e\prec_v f$ if $(e,f)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
 Hence each clique-acyclic orientation $D$ of line multigraph $L(H)$ is associated with a preference system $(H,\prec)$.
 Recall that $\sigma(D)$ denotes the linear system which defines $FK(D)$. 
 Consequently, $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$. 
@@ -219,7 +222,7 @@ For parallel edges $e$ and $e'$ in $H$, there exists no edge $f$ such that $e\pr
 Since $D$ is clique-acyclic, by the construction of preference system $(H,\prec)$, the lemma follows directly.
 \end{proof}
 
-By Lemma \ref{lem:reduct1}, parallel edges play exactly the same role in preference system $(H,\prec)$. Hence we turn to study underlying simple preference systems of $(H,\prec)$. Let $(\hat{H},\hat\prec)$ be a simple preference system, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. Before proceeding, we introduce a technical lemma first.
+By Lemma \ref{lem:reduct1}, parallel edges play the same role in preference system $(H,\prec)$. Hence we turn to study underlying simple preference systems of $(H,\prec)$. Let $(\hat{H},\hat\prec)$ be a simple preference system, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. Before proceeding, we introduce a technical lemma first.
 
 \begin{lemma}
 \label{lem:reduct2}
@@ -237,7 +240,7 @@ be two linear systems, where $\bar{A}$ is obtained from $A$ by duplicating some 
 It suffices to prove that the theorem holds for $\bar{A}$ with one duplicate column.
 Let $\bar{x}:=(\bar{x}_1,\ldots,\bar{x}_{n+1})\in\mathbb{R}^{n+1}$ and $\bar{A}:=(\bar{a}_1,\ldots,\bar{a}_{n+1})=(A,a_{k})$, where $a_k$ is the $k$th column of $A$. Let $\bar{c}:=(\bar{c}_1,\ldots,\bar{c}_{n+1})\in \mathbb{Z}^{n+1}$ be an arbitrary integral vector such that $\max\{\bar{c}^T \bar{x}: \bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$ is finite. 
 
-Let $\hat{c}\in \mathbb{Z}^n$ be defined by
+Define $\hat{c}\in \mathbb{Z}^n$ by
 \begin{equation*}
 \hat{c}_i:=
 \begin{cases}
@@ -245,7 +248,7 @@ Let $\hat{c}\in \mathbb{Z}^n$ be defined by
 \max\{\bar{c}_k, \bar{c}_{n+1}\} & i=k,
 \end{cases}
 \end{equation*}
-and $\hat{x}\in \mathbb{R}^n$ be defined by
+and define $\hat{x}\in \mathbb{R}^n$ by
 \begin{equation*}
 \hat{x}_i:=
 \begin{cases}
@@ -253,7 +256,7 @@ and $\hat{x}\in \mathbb{R}^n$ be defined by
 \bar{x}_k+\bar{x}_{n+1} & i=k.
 \end{cases}
 \end{equation*}
-Clearly,  $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. We claim that equality always holds in this inequality. Given an arbitrary optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, define $\bar{x}^*$ by $\bar{x}^*_i:=\hat{x}^*_i$ for $i\not=k,n+1$, if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k:=\hat{x}^*_k$ and $\bar{x}^*_{n+1}:=0$, otherwise $\bar{x}^*_k:=0$ and $\bar{x}^*_{n+1}:=\hat{x}^*_k$. It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Hence equality follows.
+Clearly,  $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. We claim that equality always holds in this inequality. Given an optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, define $\bar{x}^*$ by $\bar{x}^*_i:=\hat{x}^*_i$ for $i\not=k,n+1$; if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k:=\hat{x}^*_k$ and $\bar{x}^*_{n+1}:=0$, otherwise $\bar{x}^*_k:=0$ and $\bar{x}^*_{n+1}:=\hat{x}^*_k$. It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Hence equality follows.
 
 Since $Ax\leq b$ is TDI$/k$, there exists a dual optimal $1/k$-integral solution $y^*$ to $\max\{\hat{c}^T\hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$ such that $(y^*)^T b=\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, $(y^*)^T A\geq \hat{c}^T$ and $y^*\geq 0$. It follows that
 \begin{equation*}
@@ -273,7 +276,7 @@ If $\pi(\hat{H},\hat\prec)$ is totally dual $1/k$-integral, then so is $\pi(H,\p
 By Lemma \ref{lem:reduct1}, columns corresponding to parallel edges in the left hand side matrix of $\pi(H,\prec)$ are identical. Hence the left hand side matrix of $\pi(H,\prec)$ can be obtained from that of $\pi(\hat{H},\hat\prec)$ by duplicating columns corresponding to parallels edges. Then the lemma follows from Lemma \ref{lem:reduct2}.
 \end{proof}
 
-By Theorem \ref{thm:ChenDing12} and Lemma \ref{lem:reduct3}, we conclude that $\pi(H,\prec)$ is TDI$/2$. By the construction of $(H,\prec)$, when $D$ is good $(H,\prec)$ admits no odd cycles with cyclic preferences. It follows that constraints (\ref{constraints:4}) are redundant with respect to $\pi(H,\prec)$ when $D$ is good.
+By Theorem \ref{thm:ChenDing12} and Lemma \ref{lem:reduct3}, we deduce that $\pi(H,\prec)$ is TDI$/2$. By the construction of $(H,\prec)$, when $D$ is good, $(H,\prec)$ admits no odd cycles with cyclic preferences. Hence constraints (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ when $D$ is good.
 
 \begin{lemma}
 \label{lem:reduct4}
@@ -285,12 +288,16 @@ For simplicity, assume that $H=(V,E)$ and $\hat{H}=(V,\hat{E})$.
 We prove the only if part by showing that $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$. 
 Let $\hat{x}$ be a point in $FSM(\hat{H},\hat\prec)$ and define $x:=(\hat{x},0)\in \mathbb{R}^{\hat{E}}\times \mathbb{R}^{E-\hat{E}}$. To show that $x\in FSM(H,\prec)$, it suffices to prove that $x(\varphi(e))\geq 1$ for $e\in E-\hat{E}$. Let $e'\in \hat{E}$ be the edge parallel with $e\in E-\hat{E}$. By Lemma \ref{lem:reduct1}, $x(\varphi(e))=x(\varphi(e'))=\hat{x}(\varphi(e'))\geq 1$. Hence $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$.
 
-We prove the if part by showing that each vertex of $FSM(H,\prec)$ can be obtained from some vertex of $FSM(\hat{H},\hat\prec)$ by adding some zero entries. Let $x$ be a vertex of $FSM(H,\prec)$. Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e):=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e):=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e):=\hat{x}_i(e)$ and $x_i(e'):=0$, otherwise $x_i(e):=0$ and $x_i(e'):=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. Furthermore, $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$. Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$. Let $y$ and $z$ be duplicates of $x$ and set $y (e):=z(e'):=1$ and $y (e'):=z(e):=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the assumption that $x$ is a vertex.
-Now since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e):=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e):=\hat{x}(e)$ and $x(e'):=0$, otherwise $x(e):=0$ and $x(e'):=\hat{x}(e)$. 
+We prove the if part by showing that each vertex of $FSM(H,\prec)$ can be obtained from some vertex of $FSM(\hat{H},\hat\prec)$ by adding some zero entries.
+Let $x$ be a vertex of $FSM(H,\prec)$.
+We show that $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$. 
+Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$. Let $y$ and $z$ be duplicates of $x$, and further set $y (e):=z(e'):=1$ and $y (e'):=z(e):=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the fact that $x$ is a vertex.
+Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e):=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e):=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e):=\hat{x}_i(e)$ and $x_i(e'):=0$, otherwise $x_i(e):=0$ and $x_i(e'):=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. 
+Since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e):=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e):=\hat{x}(e)$ and $x(e'):=0$, otherwise $x(e):=0$ and $x(e'):=\hat{x}(e)$. 
 \end{proof}
 
-We end this section with a summary. Let $D$ be an orientation of line multigraph $L(H)$. When $D$ is clique-acyclic, it is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
-Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ and $FK(D)=FSM(H,\prec)$. To show $FK(D)$ is integral, by Lemma \ref{lem:reduct4} it suffices to show that $FSM(\hat{H},\hat\prec)$ is integral. To show $\sigma(D)$ is TDI, by Lemma \ref{lem:reduct3} it suffices to show $\pi(\hat{H},\hat\prec)$ is TDI. Moreover, when $D$ is good both $(H,\prec)$ and $(\hat{H},\hat\prec)$ admit no odd cycles with cyclic preferences.
+We end this section with a summary. When $D$ is clique-acyclic, it is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
+Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ and $FK(D)=FSM(H,\prec)$ follows. To show $FK(D)$ is integral, by Lemma \ref{lem:reduct4} it suffices to show that $FSM(\hat{H},\hat\prec)$ is integral. To show $\sigma(D)$ is TDI, by Lemma \ref{lem:reduct3} it suffices to show $\pi(\hat{H},\hat\prec)$ is TDI. Moreover, when $D$ is good both $(H,\prec)$ and $(\hat{H},\hat\prec)$ admit no odd cycles with cyclic preferences.
 
 \section{Proofs}
 Before presenting our proof to the main theorem, we explore some properties of simple preference systems admitting no odd cycles with cyclic preferences.
@@ -323,7 +330,6 @@ z(e):=
 We are going to exclude $x$ from vertices of $FSM(G, \prec)$ by adding perturbation $\epsilon z$ for small $\epsilon$ to $x$ and showing that $x\pm\epsilon z\in FSM(G,\prec)$. 
 Tight constraints in (\ref{stability constraints})-(\ref{edge nonnegativity}) under perturbation $\epsilon z$ play a key role here. Observe that tight constraints in (\ref{matching constraints}) and (\ref{edge nonnegativity}) are invariant under perturbation $\epsilon z$. It remains to show that perturbation $\epsilon z$ does not affect tight constraints in (\ref{stability constraints}) either. Let $e$ be an edge with $x(\varphi(e))=1$. Clearly, $\lvert \varphi(e)\cap E_+(x)\rvert \in\{1,2\}$. When $\lvert \varphi(e)\cap E_+(x)\rvert=1$, $x(e)=1$ follows, which is trivial. When $\lvert \varphi(e)\cap E_+(x)\rvert =2$, we claim that the parity of dominating edges in $E_{1/2}(x)$ of $e$ does not agree (relabeling vertices and edges in $E_{1/2}(x)$ if necessary).
 Hence corresponding tight constraints in (\ref{stability constraints}) are also invariant under perturbation $\epsilon z$.
-
 To justify this claim, we distinguish four cases.
 
 \textbf{Case 1.} Edge $e$ is an edge from some $C\in E_{1/2}(x)$. This case is trivial since $C$ admits cyclic preferences.
