@@ -189,7 +189,7 @@ Let $(G,\prec)$ be a simple preference system. Then $\pi(G,\prec)$ is totally du
 \end{theorem}
 
 \section{Reductions}
-To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this paper, we assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
+To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this section, we assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
 
 Kernels are closely related to stable matchings.
 When $D$ is clique-acyclic, let $e\prec_v f$ if $(e,f)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
@@ -238,7 +238,7 @@ be two linear systems, where $\bar{A}$ is obtained from $A$ by duplicating some 
 \end{lemma}
 \begin{proof}
 It suffices to prove that the theorem holds for $\bar{A}$ with one duplicate column.
-Let $\bar{x}:=(\bar{x}_1,\ldots,\bar{x}_{n+1})\in\mathbb{R}^{n+1}$ and $\bar{A}:=(\bar{a}_1,\ldots,\bar{a}_{n+1})=(A,a_{k})$, where $a_k$ is the $k$th column of $A$. Let $\bar{c}:=(\bar{c}_1,\ldots,\bar{c}_{n+1})\in \mathbb{Z}^{n+1}$ be an arbitrary integral vector such that $\max\{\bar{c}^T \bar{x}: \bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$ is finite. 
+Let $\bar{x}=(\bar{x}_1,\ldots,\bar{x}_{n+1})\in\mathbb{R}^{n+1}$ and $\bar{A}=(\bar{a}_1,\ldots,\bar{a}_{n+1})=(A,a_{k})$, where $a_k$ is the $k$th column of $A$. Let $\bar{c}=(\bar{c}_1,\ldots,\bar{c}_{n+1})\in \mathbb{Z}^{n+1}$ be an integral vector such that $\max\{\bar{c}^T \bar{x}: \bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$ is finite. 
 
 Define $\hat{c}\in \mathbb{Z}^n$ by
 \begin{equation*}
@@ -290,10 +290,10 @@ Let $\hat{x}$ be a point in $FSM(\hat{H},\hat\prec)$ and define $x:=(\hat{x},0)\
 
 We prove the if part by showing that each vertex of $FSM(H,\prec)$ can be obtained from some vertex of $FSM(\hat{H},\hat\prec)$ by adding some zero entries.
 Let $x$ be a vertex of $FSM(H,\prec)$.
-We show that $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$. 
-Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$. Let $y$ and $z$ be duplicates of $x$, and further set $y (e):=z(e'):=1$ and $y (e'):=z(e):=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the fact that $x$ is a vertex.
-Define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e):=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e):=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e):=\hat{x}_i(e)$ and $x_i(e'):=0$, otherwise $x_i(e):=0$ and $x_i(e'):=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. 
-Since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$ and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e):=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e):=\hat{x}(e)$ and $x(e'):=0$, otherwise $x(e):=0$ and $x(e'):=\hat{x}(e)$. 
+We first show that $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$. 
+Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$ follows. Let $y$ and $z$ be duplicates of $x$, and further set $y (e):=z(e'):=1$ and $y (e'):=z(e):=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the fact that $x$ is a vertex.
+Now define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e):=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e):=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e):=\hat{x}_i(e)$ and $x_i(e'):=0$, otherwise $x_i(e):=0$ and $x_i(e'):=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$. 
+Since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$, and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e):=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e):=\hat{x}(e)$ and $x(e'):=0$, otherwise $x(e):=0$ and $x(e'):=\hat{x}(e)$. 
 \end{proof}
 
 We end this section with a summary. When $D$ is clique-acyclic, it is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
@@ -351,18 +351,18 @@ To justify this claim, we distinguish four cases.
 \end{subfigure}
 \caption{Case 2}
 \end{figure}
-If $e_{2i}\prec e$, then $e_{2i-1}\prec e$. By assumption $x(\varphi(e))=1$, it follows that $e\prec e_{2j-1}$ and $e\prec e_{2j}$. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ consistute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2i}$.
+If $e_{2i}\prec e$, then $e_{2i-1}\prec e$. Since $x(\varphi(e))=1$, it follows that $e\prec e_{2j-1}$ and $e\prec e_{2j}$. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ consistute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2i}$.
 
 Similarly, if $e_{2j}\prec e$, then $e_{2j-1}\prec e$. Eqaulity $x(\varphi(e))=1$ implies that $e\prec e_{2i}$ and $e\prec e_{2i-1}$. However, $v_{2i} e_{2i} v_{2i+1} \ldots v_{2j-1} e_{2j-1} v_{2j} e v_{2i}$ constitute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2j}$. 
 
 Now $e\prec e_{2i}$ and $e\prec e_{2j}$, it follows that $e_{2i-1}\prec e$ and $e_{2j-1}\prec e$ since $x(\varphi(e))=1$. But in this case two odd cycles with cyclic preferences mentioned above occur at the same time. 
-Therefore, endpoints of $e$ have different parity in $C$. Let $e=v_{2i} v_{2j+1}$.
-If $e_{2i}\prec e$ (\textit{resp.} $e_{2j+1}\prec e$), it follows that $e_{2i-1}\prec e$ (\textit{resp.} $e_{2j}\prec e$). Then $e$ is dominated by two consecutive edges from $C$, which is trivial.  So assume that $e\prec e_{2i}$ and $e\prec e_{2j+1}$. Since $x(\varphi(e))=1$, it follows that $e_{2i+1}\prec e$ and $e_{2j}\prec e$. Hence e is dominated by two edges with different parity.
+Therefore, endpoints of $e$ have different parity in $C$. Hence let $e=v_{2i} v_{2j+1}$.
+If $e_{2i}\prec e$ (\textit{resp.} $e_{2j+1}\prec e$), it follows that $e_{2i-1}\prec e$ (\textit{resp.} $e_{2j}\prec e$). Then $e$ is dominated by two consecutive edges from $C$, which is trivial.  So assume that $e\prec e_{2i}$ and $e\prec e_{2j+1}$. Since $x(\varphi(e))=1$, it follows that $e_{2i+1}\prec e$ and $e_{2j}\prec e$. Therefore e is dominated by two edges with different parity.
 
 \textbf{Case 3.} Edge $e$ is a hanging edge of some $C\in E_{1/2}(x)$ and dominated by two edges from $C$. This case is trivial.
 
 \textbf{Case 4.} Edge $e$ is a connecting edge bewteen $C_i$ and $C_j$ and dominated by one edge from $C_i$ and one edge from $C_j$ respectively, where $C_i, C_j \in E_{1/2}(x)$.
-For $k=1,2,\ldots,r$, let $F_k$ be a subset of edges in case 4 incident to $C_k$.
+For $k=1,2,\ldots,r$, let $F_k$ be the subset of edges in this case and incident to $C_k$.
 \begin{figure}
 \centering
 \includegraphics[scale=0.85]{KernelMengerianO-fig2}
@@ -374,17 +374,24 @@ When $\alpha=1$, it is trivial.
 Hence assume the claim holds for components with $\alpha\geq 1$ cycles from $E_{1/2}(x)$. We consider a component with $\alpha +1$ cycles $C_1, \ldots, C_{\alpha}, C_{\alpha+1}$ from $E_{1/2}(x)$. 
 Without loss of generality, assume that deleting $C_{\alpha+1}$ yields a new component with $\alpha$ cycles.
 By induction hypothesis, the claim holds for the resulting component. 
-It remains to check edges in $F_{\alpha+1}$. If there exists an edge in $F_{\alpha+1}$ violating the claim, we relabel vertices and edges in $C_{\alpha+1}$. After at most one relabeling, all edges in $F_{\alpha+1}$ satisfy the claim. We prove it by contradiction. Let $f_1,f_2 \in F_{\alpha +1}$ be edges such that $f_1$ satisfies the claim but $f_2$ violates the claim. For $i=1,2$, let $f_i=u_i w_i$, where $u_i$ is the endpoint in the resulting component and $w_i$ is the endpoint in $C_{\alpha+1}$. By assumption, $u_1$ and $w_1$ have different parity and $u_2$ and $w_2$ have the same parity.
+It remains to check edges in $F_{\alpha+1}$. If there exists an edge in $F_{\alpha+1}$ violating the claim, relabel vertices and edges in $C_{\alpha+1}$. After at most one relabeling, all edges in $F_{\alpha+1}$ satisfy the claim. We prove it by contradiction. Let $f_1,f_2 \in F_{\alpha +1}$ be edges such that $f_1$ satisfies the claim but $f_2$ violates the claim. For $i=1,2$, let $f_i=u_i w_i$, where $u_i$ is the endpoint in the resulting component and $w_i$ is the endpoint in $C_{\alpha+1}$. By assumption, $u_1$ and $w_1$ have different parity and $u_2$ and $w_2$ have the same parity.
 Analogous to the definition of cycles with cyclic preferences, we call path $P=v_1 v_2 \ldots v_l$ a \textit{$v_1 v_l$-path with linear preferences} if $v_iv_{i+1}\prec_{v_{i+1}}v_{i+1}v_{i+2}$ for $i=1,2,\ldots,l-2$. Clearly, for any two vertices in the same component, there exists a path with linear preferences between them.
-Hence there exists a $u_1 u_2$-path $P_\alpha$ and a $w_2 w_1$-path $P_{\alpha+1}$, both of which admit linear preferences.
+Hence there exist a $u_1 u_2$-path $P_\alpha$ and a $w_2 w_1$-path $P_{\alpha+1}$, both of which admit linear preferences.
 Moreover, $u_1 P_\alpha u_2 f_2 w_2 P_{\alpha+1} w_1 f_1 u_1$ constitute a cycle with cyclic preferences. We justify this cycle is odd by 
 showing that the $u_1 u_2$-path $P_\alpha$ is even (\textit{resp.} odd) if $u_1$ and $u_2$ have the same (\textit{resp.} different) parity.
 
-If $u_1$ and $u_2$ are from the same cycle $C_k$, where $k\in \{1,2,\ldots,\alpha\}$, it is trivial. Hence assume $u_1=v^s \in C_s$ and $u_2=v^t\in C_t$, where $s,t\in \{1,2,\ldots,\alpha\}$ and $s\not=t$. We apply induction on the number $\tau$ of cycles from $E_{1/2}(x)$ involved in $P_\alpha$. Clearly, $\tau\geq 2$.
-When $\tau=2$. Take $v^s_+ v^t_-\in F_s\cap F_t$ on $P_\alpha$. Let $P_s$ be the part of $P_\alpha$ from $v^s$ to $v^s_+$ in $C_s$ and $P_t$ be the part of $P_\alpha$ from $v^t_-$ to $v^t$ in $C_t$. It follows that $v^sP_s v^s_+ v^t_- P_t v^t$ constitute $P_\alpha$. By assumption, $v^s_+$ and $v^t_-$ have different parity since $v^s_+ v^t_-\in F_s\cap F_t$. If $v^s$ and $v^t$ have the same parity, then $P_s$ and $P_t$ have different parity, implying that $P_\alpha$ is even; if $v^s$ and $v^t$ have different parity, then $P_s$ and $P_t$ have the same parity, implying that $P_\alpha$ is odd.
-Now assume $\tau\geq 2$. Let $C_{k_1},\ldots,C_{k_\tau},C_{k_{\tau+1}}$ be cycles from $E_{1/2}(x)$ involved along $P_\alpha$. Take $v^{k_{\tau}}_+ v^{k_{\tau+1}}_- \in F_{k_{\tau}}\cap F_{k_{\tau+1}}$ on $P_\alpha$. Let $P_{s, k_{\tau}}$ denote the part of $P_\alpha$ from $v^s$ to $v^{k_{\tau}}_+$ and $P_{k_{\tau},t}$ denote the part of $P_\alpha$ from $v^{k_{\tau}}_+$ to $v^t$. Clearly, $P_\alpha=v^sP_{s,k_\tau} v^{k_\tau}_+ P_{k_\tau, t} v^t$. Since $P_{s, k_{\tau}}$ involves $\tau$ cycles and $P_{k_{\tau},t}$ involves two cycles, the length of both depends on the parity of endpoints. It follows that $P_\alpha$ is even when $u_1$ and $u_2$ have the same parity and $P_\alpha$ is odd when $u_1$ and $u_2$ have different parity.
+If $u_1$ and $u_2$ belong to the same cycle from $E_{1/2}(x)$, it is trivial. Hence assume $u_1\in C_s$ and $u_2\in C_t$, where $s,t\in \{1,2,\ldots,\alpha\}$ and $s\not=t$. We apply induction on the number $\tau$ of cycles from $E_{1/2}(x)$ involved in $P_\alpha$. Clearly, $\tau\geq 2$.
+When $\tau=2$. Take $v^s v^t\in F_s\cap F_t$ on $P_\alpha$.
+Let $P_s$ be the part of $P_\alpha$ from $u_1$ to $v^s$ in $C_s$ and $P_t$ be the part of $P_\alpha$ from $v^t$ to $u_2$ in $C_t$.
+It follows that $u_1 P_s v^s v^t P_t u_2$ constitute $P_\alpha$.
+By assumption, $v^s$ and $v^t$ have different parity since $v^s v^t\in F_s\cap F_t$.
+If $u_1$ and $u_2$ have the same parity, then $P_s$ and $P_t$ have different parity, implying that $P_\alpha$ is even; if $u_1$ and $u_2$ have different parity, then $P_s$ and $P_t$ have the same parity, implying that $P_\alpha$ is odd.
+Now assume $\tau\geq 2$. Let $C_{k_1},\ldots,C_{k_\tau},C_{k_{\tau+1}}$ be cycles from $E_{1/2}(x)$ involved along $P_\alpha$.
+Take $v^{k_{\tau}} v^{k_{\tau+1}} \in F_{k_{\tau}}\cap F_{k_{\tau+1}}$ on $P_\alpha$.
+Let $P_{s, k_{\tau}}$ denote the part of $P_\alpha$ from $u_1$ to $v^{k_{\tau}}$ and $P_{k_{\tau},t}$ denote the part of $P_\alpha$ from $v^{k_{\tau}}$ to $u_2$.
+Clearly, $P_\alpha=u_1 P_{s,k_\tau} v^{k_\tau} P_{k_\tau, t} u_2$. Since $P_{s, k_{\tau}}$ involves $\tau$ cycles and $P_{k_{\tau},t}$ involves two cycles, the length of both depends on the parity of endpoints. It follows that $P_\alpha$ is even when $u_1$ and $u_2$ have the same parity, and $P_\alpha$ is odd when $u_1$ and $u_2$ have different parity.
 
-By assumption, when $u_1$ and $u_2$ have the same parity, $w_1$ and $w_2$ have different parity, implying that $P_\alpha$ is even and $P_{\alpha+1}$ is odd;
+Hence when $u_1$ and $u_2$ have the same parity, $w_1$ and $w_2$ have different parity, implying that $P_\alpha$ is even and $P_{\alpha+1}$ is odd;
 when $u_1$ and $u_2$ have different parity, $w_1$ and $w_2$ have the same parity, implying that $P_\alpha$ is odd and $P_{\alpha+1}$ is even. 
 Either case yields an odd cycle with cyclic preferences, a contradiction.
 
