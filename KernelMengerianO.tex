@@ -53,7 +53,7 @@
 \marginparwidth 0pt \oddsidemargin 0pt \evensidemargin 0pt
 \topmargin 30pt \textheight 21.0 truecm \textwidth 16.0 truecm
 
-\title{{\Large\bf  On Kernel Mengerian Orientations of Line Graphs}}
+\title{{\LARGE\bf  On Kernel Mengerian Orientations of Line Graphs}}
 \date{}
 \author{Han Xiao \footnote{hxiao.math@connect.hku.hk}}
 
@@ -99,14 +99,13 @@ An undirected graph is called \textit{simple} if it contains neither loops nor p
 \textit{Simple} digraphs and \textit{multidigraphs} are defined analogously. 
 
 Let $G$ be an undirected graph.
-The \textit{line graph} of $G$, denoted by $L(G)$, is an undirected graph that represents the adjacency of edges of $G$. 
-In particular, each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
+The \textit{line graph} of $G$, denoted by $L(G)$, is an undirected graph that represents the adjacency of edges of $G$: each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
 We call $L(G)$ the \textit{line multigraph} of $G$ if any two vertices of $L(G)$ are connected by as many edges as the number of their common ends in $G$. 
 
 Let $D=(V,A)$ be a digraph. 
 For $U\subseteq V$, We call $U$ an \textit{independent} set of $D$ if no two vertices in $U$ are connected by an arc, call $U$ a \textit{dominating} set of $D$ if for each vertex $v\not\in U$, there is an arc from $v$ to $U$, and call $U$ a \textit{kernel} of $D$ if it is both independent and dominating. 
 We call $D$ \textit{kernel perfect} if each of its induced subgraphs has a kernel.
-A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$}. 
+A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$.}. 
 
 \begin{theorem}[Borodin \textit{et al.} \cite{BoroKost98}]
 \label{thm:BoroKost98}
@@ -147,7 +146,7 @@ Our theorem strengthens the result of Borodin \textit{et al.} and generalizes th
 \label{pre}
 Let $G=(V,E)$ be an undirected graph. 
 For $v\in V$, let $\delta(v)$ denote the set of all edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$. 
-We call $\prec_v$ the \emph{preference} of $v$ and say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\preceq_v f$ for $e,f\in \delta(v)$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$.
+We call $\prec_v$ the \emph{preference} of $v$, and for edges $e$ and $f$ incident to $v$ we say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\preceq_v f$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$.
 We call $(G,\prec)$ a \emph{preference system} and say $(G,\prec)$ is \emph{simple} if $G$ is simple.
 For $e\in E$, let $\varphi(e)$ denote the set of all edges that dominate $e$ in $(G,\prec)$.
 Let $M$ be a matching of $G$. We say $M$ is \emph{stable} in $(G,\prec)$ if every edge of $G$ is dominated by some edge in $M$.
@@ -189,7 +188,7 @@ Let $(G,\prec)$ be a simple preference system. Then $\pi(G,\prec)$ is totally du
 \end{theorem}
 
 \section{Reductions}
-To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this section, we assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
+To study kernels in multidigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this section, assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a multidigraph such that any two distinct vertices are joined by at most one arc in each direction.
 
 Kernels are closely related to stable matchings.
 When $D$ is clique-acyclic, let $e\prec_v f$ if $(e,f)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
@@ -314,10 +313,9 @@ Let $(G,\prec)$ be a simple preference system. If $(G,\prec)$ admits no odd cycl
 \end{corollary}
 
 \begin{proof}[Proof of Lemma \ref{lem:prf1}]
-Let $(G,\prec)$ be a simple preference system admitting no odd cycles with cyclic preferences.
-By Theorem \ref{thm:AbelRoth94}, $FSM(G,\prec)$ is $1/2$-integral.
+By Theorem \ref{thm:AbelRoth94}, $FSM(G,\prec)$ is $1/2$-integral as $(G,\prec)$ is a simple preference system.
 Let $x$ be a $1/2$-integral point in $FSM(G, \prec)$.
-Consider $E_{1/2}(x)$, which consists of even cycles $C_1,C_2,\ldots,C_r$ with cyclic preferences. For $i=1,2,\ldots,r$, label vertices and edges of $C_i\in E_{1/2}(x)$ such that $C_i=v^i_1v^i_2\ldots v^i_{l}$ and $e^i_k\prec_{v^i_{k+1}} e^i_{k+1}$ for $k=1,2,\ldots,l$, where $e^i_k=v^i_{k}v^i_{k+1}$ and indices are taken modulo $l$. 
+Since $(G,\prec)$ admits no odd cycles with cyclic preferences, $E_{1/2}(x)$ consists of even cycles $C_1,C_2,\ldots,C_r$ with cyclic preferences. For $i=1,2,\ldots,r$, label vertices and edges of $C_i\in E_{1/2}(x)$ such that $C_i=v^i_1v^i_2\ldots v^i_{l}$ and $e^i_k\prec_{v^i_{k+1}} e^i_{k+1}$ for $k=1,2,\ldots,l$, where $e^i_k=v^i_{k}v^i_{k+1}$ and indices are taken modulo $l$. 
 We remark that the parity of vertices and edges refers to the parity of their indices. Define $z\in \mathbb{R}^{E(G)}$ by
 \begin{equation*}
 z(e):=
@@ -334,7 +332,6 @@ To justify this claim, we distinguish four cases.
 
 \textbf{Case 1.} Edge $e$ is an edge from some $C\in E_{1/2}(x)$. This case is trivial since $C$ admits cyclic preferences.
 
-\textbf{Case 2.} Edge $e$ is a chord in some $C\in E_{1/2}(x)$. We first show that endpoints of $e$ have different parity in $C$. We prove it by contradiction. Without loss of generality, let $e=v_{2i}v_{2j}$.
 \begin{figure}
 \centering
 \begin{subfigure}{.4\textwidth}
@@ -351,6 +348,8 @@ To justify this claim, we distinguish four cases.
 \end{subfigure}
 \caption{Case 2}
 \end{figure}
+\textbf{Case 2.} Edge $e$ is a chord in some $C\in E_{1/2}(x)$. We first show that endpoints of $e$ have different parity in $C$. We prove it by contradiction. Without loss of generality, let $e=v_{2i}v_{2j}$.
+
 If $e_{2i}\prec e$, then $e_{2i-1}\prec e$. Since $x(\varphi(e))=1$, it follows that $e\prec e_{2j-1}$ and $e\prec e_{2j}$. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ consistute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2i}$.
 
 Similarly, if $e_{2j}\prec e$, then $e_{2j-1}\prec e$. Eqaulity $x(\varphi(e))=1$ implies that $e\prec e_{2i}$ and $e\prec e_{2i-1}$. However, $v_{2i} e_{2i} v_{2i+1} \ldots v_{2j-1} e_{2j-1} v_{2j} e v_{2i}$ constitute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2j}$. 
@@ -361,13 +360,14 @@ If $e_{2i}\prec e$ (\textit{resp.} $e_{2j+1}\prec e$), it follows that $e_{2i-1}
 
 \textbf{Case 3.} Edge $e$ is a hanging edge of some $C\in E_{1/2}(x)$ and dominated by two edges from $C$. This case is trivial.
 
-\textbf{Case 4.} Edge $e$ is a connecting edge bewteen $C_i$ and $C_j$ and dominated by one edge from $C_i$ and one edge from $C_j$ respectively, where $C_i, C_j \in E_{1/2}(x)$.
-For $k=1,2,\ldots,r$, let $F_k$ be the subset of edges in this case and incident to $C_k$.
 \begin{figure}
 \centering
 \includegraphics[scale=0.85]{KernelMengerianO-fig2}
 \caption{Case 4}
 \end{figure}
+\textbf{Case 4.} Edge $e$ is a connecting edge bewteen $C_i$ and $C_j$ and dominated by one edge from $C_i$ and one edge from $C_j$ respectively, where $C_i, C_j \in E_{1/2}(x)$.
+For $k=1,2,\ldots,r$, let $F_k$ be the subset of edges in this case and incident to $C_k$.
+
 Then $\cup_{i=1}^{i=r} F_i\cup C_i$ induces a subgraph of $G$. It suffices to work on a component of the induced subgraph. We apply induction on the number $\alpha$ of cycles from $E_{1/2}(x)$ in a component.
 
 When $\alpha=1$, it is trivial.
@@ -384,7 +384,7 @@ If $u_1$ and $u_2$ belong to the same cycle from $E_{1/2}(x)$, it is trivial. He
 When $\tau=2$. Take $v^s v^t\in F_s\cap F_t$ on $P_\alpha$.
 Let $P_s$ be the part of $P_\alpha$ from $u_1$ to $v^s$ in $C_s$ and $P_t$ be the part of $P_\alpha$ from $v^t$ to $u_2$ in $C_t$.
 It follows that $u_1 P_s v^s v^t P_t u_2$ constitute $P_\alpha$.
-By assumption, $v^s$ and $v^t$ have different parity since $v^s v^t\in F_s\cap F_t$.
+By induction hypothesis, $v^s$ and $v^t$ have different parity since $v^s v^t\in F_s\cap F_t$.
 If $u_1$ and $u_2$ have the same parity, then $P_s$ and $P_t$ have different parity, implying that $P_\alpha$ is even; if $u_1$ and $u_2$ have different parity, then $P_s$ and $P_t$ have the same parity, implying that $P_\alpha$ is odd.
 Now assume $\tau\geq 2$. Let $C_{k_1},\ldots,C_{k_\tau},C_{k_{\tau+1}}$ be cycles from $E_{1/2}(x)$ involved along $P_\alpha$.
 Take $v^{k_{\tau}} v^{k_{\tau+1}} \in F_{k_{\tau}}\cap F_{k_{\tau+1}}$ on $P_\alpha$.
