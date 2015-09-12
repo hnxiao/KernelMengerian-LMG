@@ -77,8 +77,14 @@ Hong Kong, China
 
 \begin{abstract}
 We present a polyhedral description of kernels in orientations of line multigraphs.
-Given a directed multigraph $D$, let $\sigma(D)$ denote the linear system consisting of domination, independence and nonnegativity constraints, and let $FK(D)$ denote the set of all solutions to $\sigma(D)$. We call $D$ kernel ideal if $FK(D')$ is integral for each induced subgraph $D'$ of $D$ and kernel Mengerian if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$. We also call $D$ good if it is clique-acyclic and each directed odd cycle has a chord or a pseudochord.
-We show that an orientation of a line multigraph is kernel ideal if and only if it is kernel Mengerian if and only if it is good. Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
+Given a digraph $D$, let $FK(D)$ denote the fractional kernel polytope defined on $D$,
+and let $\sigma(D)$ denote the linear system defining $FK(D)$.
+A digraph $D$ is
+called kernel perfect if every induced subdigraph $D'$ has a kernel,
+called kernel ideal if $FK(D')$ is integral for each induced subdigraph $D'$,
+and called kernel Mengerian if $\sigma(D')$ is TDI for each induced subdigraph $D'$.
+We show that an orientation of a line multigraph is kernel perfect iff it is kernel ideal iff it is kernel Mengerian.
+Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
 
 \hfill
 
@@ -87,7 +93,7 @@ We show that an orientation of a line multigraph is kernel ideal if and only if 
 \noindent\textbf{AMS subject classifications:} 90C10, 90C27, 90C57.
 
 
-\noindent\textbf{Key words:} kernel, stable matching, line graph, integral polytope, total dual integrality.
+\noindent\textbf{Key words:} kernel, stable matching, line graph, polytope, total dual integrality.
 \end{abstract}
 
 
@@ -100,19 +106,21 @@ An undirected graph is called \textit{simple} if it contains neither loops nor p
 Let $G$ be an undirected graph.
 The \textit{line graph} of $G$, denoted by $L(G)$, is an undirected graph that represents the adjacency of edges of $G$: each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
 We call $L(G)$ the \textit{line multigraph} of $G$ if any two vertices of $L(G)$ are connected by as many edges as the number of their common ends in $G$.
+We call $G$ a \textit{root} of $L(G)$.
 
 Let $D=(V,A)$ be a digraph.
 For $U\subseteq V$, we call $U$ an \textit{independent} set of $D$ if no two vertices in $U$ are connected by an arc, call $U$ a \textit{dominating} set of $D$ if for each vertex $v\not\in U$, there is an arc from $v$ to $U$, and call $U$ a \textit{kernel} of $D$ if it is both independent and dominating.
-We call $D$ \textit{kernel perfect} if each of its induced subgraphs has a kernel.
-A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a chord or a pseudochord\footnote{A pseudochord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$.}.
+We call $D$ \textit{kernel perfect} if each of its induced subdigraphs has a kernel.
+A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a chord or a pseudo-chord\footnote{A pseudo-chord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$.}.
 
 \begin{theorem}[Borodin \textit{et al.} \cite{BoroKost98}]
 \label{thm:BoroKost98}
 Let $G$ be a line multigraph. The orientation $D$ of $G$ is kernel perfect if and only if it is good.
 \end{theorem}
 
-A subset $P$ of $\mathbb{R}^n$ is called a \textit{polytope} if it is the convex hull of finitely many vectors in $\mathbb{R}^n$. A point $x$ in $P$ is called a \textit{vertex} or an \textit{extreme point} if there exist no distinct points $y$ and $z$ in $P$ such that $x=\alpha y+ (1-\alpha)z$ for $0<\alpha<1$. It is well known that $P$ is the convex hull of its vertices, and that there exists a linear system $Ax\leq b$ such that $P=\{x\in\mathbb{R}^n:Ax\leq b\}$. We say $P$ is $1/k$-\textit{integral} if its vertices are $1/k$-integral vectors, where $k\in\mathbb{N}$. By a theorem in linear programming, $P$ is $1/k$-integral if and only if $\max\{c^T x:Ax\leq b\}$ has an optimal $1/k$-integral solution for every integral vector $c$ for which the optimum is finite. If, instead, $\max\{c^T x:Ax\leq b\}$ has a dual optimal $1/k$-integral solution, we say $Ax\leq b$ is \textit{totally dual $1/k$-integral} (TDI$/k$).
-It is easy to verify that $Ax\leq b$ is TDI$/k$ if and only if $Bx\leq b$ is TDI, where $B=A/k$ and $k\in\mathbb{N}$. Thus from a theorem of Edmonds and Giles \cite{EdmoGile77}, we deduce that if $Ax\leq b$ is TDI$/k$ and $b$ is integal, then $P=\{x\in\mathbb{R}^n:Ax\leq b\}$ is $1/k$-integral.
+A subset $P$ of $\mathbb{R}^n$ is called a \textit{polytope} if it is the convex hull of finitely many vectors in $\mathbb{R}^n$. A point $x$ in $P$ is called a \textit{vertex} or an \textit{extreme point} if there exist no distinct points $y$ and $z$ in $P$ such that $x=\alpha y+ (1-\alpha)z$ for $0<\alpha<1$. It is well known that $P$ is the convex hull of its vertices, and that there exists a linear system $Ax\leq b$ such that $P=\{x\in\mathbb{R}^n:Ax\leq b\}$.
+We say $P$ is $1/k$-\textit{integral} if its vertices are $1/k$-integral vectors, where $k\in\mathbb{N}$. By a theorem in linear programming, $P$ is $1/k$-integral if and only if $\max\{c^T x:Ax\leq b\}$ has an optimal $1/k$-integral solution for every integral vector $c$ for which the optimum is finite. If, instead, $\max\{c^T x:Ax\leq b\}$ has a dual optimal $1/k$-integral solution, we say $Ax\leq b$ is \textit{totally dual $1/k$-integral} (TDI$/k$).
+It is easy to verify that $Ax\leq b$ is TDI$/k$ if and only if $Bx\leq b$ is TDI, where $B=A/k$ and $k\in\mathbb{N}$. Thus from a theorem of Edmonds and Giles \cite{EdmoGile77}, we deduce that if $Ax\leq b$ is TDI$/k$ and $b$ is integral, then $P=\{x\in\mathbb{R}^n:Ax\leq b\}$ is $1/k$-integral.
 
 Let $\sigma(D)$ denote the linear system consisting of the following inequalities:
 \begin{alignat}{4}
@@ -121,8 +129,8 @@ x(Q)&\leq 1 &\qquad &\forall ~ Q &\in \mathcal{Q}, \label{independence constrain
 x(v) &\geq 0 &\qquad &\forall ~ v~&\in V, \label{vertex nonnegativity}
 \end{alignat}
 where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N_D^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the set of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ to $\sigma(D)$.
-The \textit{kernel polyotpe} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ to $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
-We call $D$ \textit{kernel ideal} if $FK(D')$ is integral for each induced subgraph $D'$ of $D$, and \textit{kernel Mengerian} if $\sigma(D')$ is TDI for each induced subgraph $D'$ of $D$.
+The \textit{kernel polytope} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ to $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
+We call $D$ \textit{kernel ideal} if $FK(D')$ is integral for each induced subdigraph $D'$, and \textit{kernel Mengerian} if $\sigma(D')$ is TDI for each induced subdigraph $D'$.
 
 As described in Egres Open \cite{Egres}, the polyhedral description of kernels remains open. Chen \textit{et al.} \cite{ChenChen} attained a polyhedral characterization of kernels by replacing clique constraints $x(Q)\leq 1$ for $Q\in\mathcal{Q}$ with independence constraints $x(u)+x(v)\leq 1$ for $(u,v)\in A$. In this paper we show that kernels in digraph $D$ can be fully characterized by polyhedral approaches if $D$ is an orientation of line multigraphs.
 
@@ -137,7 +145,7 @@ Let $D$ be an orientation of a line multigraph. Then the following statements ar
 \end{enumerate}
 \end{theorem}
 
-The equivalence of $(i)$ and $(ii)$ was established by Borodin \textit{et al.} \cite{BoroKost98} (Maffray \cite{Maff92} proved the case when the underlying undirected graph of $D$ is perfect). Kir\'{a}ly and Pap \cite{KiraPap08} proved the theorem when the underlying undirected graph of $D$ is the line graph of a bipartite graph, which will be described in the next section.
+The equivalence of $(i)$ and $(ii)$ was established by Borodin \textit{et al.} \cite{BoroKost98} (Maffray \cite{Maff92} proved the case when $D$ is perfect). Kir\'{a}ly and Pap \cite{KiraPap08} proved Theorem \ref{thm:main} for the case when the root of $D$ is bipartite.
 Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} to line multigraphs.
 
 
@@ -150,7 +158,7 @@ We call $(G,\prec)$ a \emph{preference system} and say $(G,\prec)$ is \emph{simp
 For $e\in E$, let $\varphi(e)$ denote the set of all edges that dominate $e$ in $(G,\prec)$.
 Let $M$ be a matching of $G$. We say $M$ is \emph{stable} in $(G,\prec)$ if every edge of $G$ is dominated by some edge in $M$.
 
-Let $\pi(G,\prec)$ denote the linear system consisting of the following inequalites:
+Let $\pi(G,\prec)$ denote the linear system consisting of the following inequalities:
 \begin{alignat}{3}
 x(\varphi(e)) &\geq 1 &\qquad \forall ~e &\in E,\label{stability constraints}\\
 x(\delta(v)) &\leq 1 &\qquad \forall ~v &\in V,\label{matching constraints}\\
@@ -254,7 +262,14 @@ and define $\hat{x}\in \mathbb{R}^n$ by
 \bar{x}_k+\bar{x}_{n+1} & i=k.
 \end{cases}
 \end{equation*}
-Clearly,  $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. We claim that equality always holds in this inequality. Given an optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, define $\bar{x}^*$ by $\bar{x}^*_i:=\hat{x}^*_i$ for $i\not=k,n+1$; if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k:=\hat{x}^*_k$ and $\bar{x}^*_{n+1}:=0$, otherwise $\bar{x}^*_k:=0$ and $\bar{x}^*_{n+1}:=\hat{x}^*_k$. It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. Hence equality follows.
+Clearly, $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$.
+We claim that equality always holds in this inequality.
+Given an optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$,
+define $\bar{x}^*$ by $\bar{x}^*_i:=\hat{x}^*_i$ for $i\not=k,n+1$;
+if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k:=\hat{x}^*_k$ and $\bar{x}^*_{n+1}:=0$, otherwise $\bar{x}^*_k:=0$ and $\bar{x}^*_{n+1}:=\hat{x}^*_k$.
+It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$.
+Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$.
+Hence equality follows.
 
 Since $Ax\leq b$ is TDI$/k$, there exists a dual optimal $1/k$-integral solution $y^*$ to $\max\{\hat{c}^T\hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$ such that $(y^*)^T b=\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, $(y^*)^T A\geq \hat{c}^T$ and $y^*\geq 0$. It follows that
 \begin{equation*}
@@ -304,7 +319,7 @@ Before presenting our proof of the main theorem, we exhibit some properties of s
 Let $(G,\prec)$ be a simple preference system. If $(G,\prec)$ admits no odd cycles with cyclic preferences, then $SM(G,\prec)=FSM(G,\prec)$.
 \end{lemma}
 
-As observed by Chen \textit{et al.} \cite{ChenDing12}, integrality of $FSM(G,\prec)$ is equivalent to total dual integrality of $\pi(G,\prec)$, where $(G,\prec)$ is a simple preference system. A corollary follows directly.
+By Theorem \ref{thm:ChenDing12}, integrality of $FSM(G,\prec)$ is equivalent to total dual integrality of $\pi(G,\prec)$, where $(G,\prec)$ is a simple preference system. A corollary follows directly.
 
 \begin{corollary}
 \label{cor:prf2}
@@ -349,9 +364,9 @@ To justify this claim, we distinguish four cases.
 \end{figure}
 \textbf{Case 2.} Edge $e$ is a chord in some $C\in E_{1/2}(x)$. We first show that endpoints of $e$ have different parity in $C$. We prove it by contradiction. Without loss of generality, let $e=v_{2i}v_{2j}$.
 
-If $e_{2i}\prec e$, then $e_{2i-1}\prec e$. Since $x(\varphi(e))=1$, it follows that $e\prec e_{2j-1}$ and $e\prec e_{2j}$. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ consistute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2i}$.
+If $e_{2i}\prec e$, then $e_{2i-1}\prec e$. Since $x(\varphi(e))=1$, it follows that $e\prec e_{2j-1}$ and $e\prec e_{2j}$. However, $v_{2i} e v_{2j} e_{2j} v_{2j+1} \ldots v_{2i-1} e_{2i-1} v_{2i}$ constitute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2i}$.
 
-Similarly, if $e_{2j}\prec e$, then $e_{2j-1}\prec e$. Eqaulity $x(\varphi(e))=1$ implies that $e\prec e_{2i}$ and $e\prec e_{2i-1}$. However, $v_{2i} e_{2i} v_{2i+1} \ldots v_{2j-1} e_{2j-1} v_{2j} e v_{2i}$ constitute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2j}$.
+Similarly, if $e_{2j}\prec e$, then $e_{2j-1}\prec e$. Equality $x(\varphi(e))=1$ implies that $e\prec e_{2i}$ and $e\prec e_{2i-1}$. However, $v_{2i} e_{2i} v_{2i+1} \ldots v_{2j-1} e_{2j-1} v_{2j} e v_{2i}$ constitute an odd cycle with cyclic preferences, a contradiction. Hence $e\prec e_{2j}$.
 
 Now $e\prec e_{2i}$ and $e\prec e_{2j}$, it follows that $e_{2i-1}\prec e$ and $e_{2j-1}\prec e$ since $x(\varphi(e))=1$. But in this case two odd cycles with cyclic preferences mentioned above occur at the same time.
 Therefore, endpoints of $e$ have different parity in $C$. Hence let $e=v_{2i} v_{2j+1}$.
@@ -364,7 +379,7 @@ If $e_{2i}\prec e$ (\textit{resp.} $e_{2j+1}\prec e$), it follows that $e_{2i-1}
 \includegraphics[scale=0.85]{KernelMengerian-fig2}
 \caption{Case 4}
 \end{figure}
-\textbf{Case 4.} Edge $e$ is a connecting edge bewteen $C_i$ and $C_j$ and dominated by one edge from $C_i$ and one edge from $C_j$ respectively, where $C_i, C_j \in E_{1/2}(x)$.
+\textbf{Case 4.} Edge $e$ is a connecting edge between $C_i$ and $C_j$ and dominated by one edge from $C_i$ and one edge from $C_j$ respectively, where $C_i, C_j \in E_{1/2}(x)$.
 For $k=1,2,\ldots,r$, let $F_k$ be the subset of edges in this case and incident to $C_k$.
 Then $\cup_{i=1}^{i=r} F_i\cup C_i$ induces a subgraph of $G$. It suffices to work on a component of the induced subgraph. We apply induction on the number $\alpha$ of cycles from $E_{1/2}(x)$ in a component.
 
@@ -402,13 +417,14 @@ Now we are ready to present a proof of our main theorem.
 It suffices to show the equivalence of $(i)$, $(iii)$ and $(iv)$. Without loss of generality, let $D$ be an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. When $D$ is good, $D$ is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, both of which admit no odd cycles with cyclic preferences, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
 Hence $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}), where constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ constitute the Rothblum system $\pi(H,\prec)$.
 
-By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$. Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subgraphs of $D$. Hence $(i)\implies (iii)$.
+By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$.
+Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subdigraphs of $D$. Hence $(i)\implies (iii)$.
 
-By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subgraphs of $D$. Hence $(iii)\implies (iv)$.
+By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subdigraphs of $D$. Hence $(iii)\implies (iv)$.
 
 By a theorem of Edmonds and Giles \cite{EdmoGile77}, implication $(iv)\implies (iii)$ follows directly.
 
-To prove implication $(iii)\implies (i)$, we assume the contrary. Observe that strong kernel idealness of  $D$ implies the existence of kernels for any induced subgraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords nor pseudochords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subgraph induced on this clique. There is no kernel for this induced subgraph, a contradiction. If $D$ contains a directed odd cycle without chords nor pseudochords, we restrict ourselves to the subgraph induced on this directed odd cycle. There is no kernel for this induced subgraph either, a contradiction.
+To prove implication $(iii)\implies (i)$, we assume the contrary. Observe that strong kernel idealness of $D$ implies the existence of kernels for any induced subdigraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords nor pseudo-chords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subdigraph induced on this clique. There is no kernel for this induced subdigraph, a contradiction. If $D$ contains a directed odd cycle without chords nor pseudo-chords, we restrict ourselves to the subdigraph induced on this directed odd cycle. There is no kernel for this induced subdigraph either, a contradiction.
 \end{proof}
 
 \section*{Acknowledgments}
