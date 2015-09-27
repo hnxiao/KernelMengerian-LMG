@@ -83,7 +83,7 @@ A digraph $D$ is
 called kernel perfect if every induced subdigraph $D'$ has a kernel,
 called kernel ideal if $FK(D')$ is integral for each induced subdigraph $D'$,
 and called kernel Mengerian if $\sigma(D')$ is TDI for each induced subdigraph $D'$.
-We show that an orientation of a line multigraph is kernel perfect iff it is kernel ideal iff it is kernel Mengerian.
+We show that an orientation of line multigraph is kernel perfect iff it is kernel ideal iff it is kernel Mengerian.
 Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
 
 \hfill
@@ -100,18 +100,20 @@ Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} 
 \newpage
 \section{Introduction}
 \label{intro}
-An undirected graph is called \textit{simple} if it contains neither loops nor parallel edges and is called a \textit{multigraph} if parallel edges are allowed.
-\textit{Simple} digraphs and \textit{directed multigraphs} are defined analogously.
+A graph is called \textit{simple} if it contains neither loops nor parallel edges, and is called a \textit{multigraph} if it has parallel edges.
+A \textit{simple} digraph is an orientation of simple graph.
+A \textit{multi-digraph} is an orientation of multigraph.
+Orientations of multigraph considered in this paper always have parallel edges oriented in both directions.
 
-Let $G$ be an undirected graph.
-The \textit{line graph} of $G$, denoted by $L(G)$, is an undirected graph that represents the adjacency of edges of $G$: each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
+Let $G$ be a graph.
+The \textit{line graph} of $G$, denoted by $L(G)$, is a graph such that: each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
 We call $L(G)$ the \textit{line multigraph} of $G$ if any two vertices of $L(G)$ are connected by as many edges as the number of their common ends in $G$.
 We call $G$ a \textit{root} of $L(G)$.
 
 Let $D=(V,A)$ be a digraph.
 For $U\subseteq V$, we call $U$ an \textit{independent} set of $D$ if no two vertices in $U$ are connected by an arc, call $U$ a \textit{dominating} set of $D$ if for each vertex $v\not\in U$, there is an arc from $v$ to $U$, and call $U$ a \textit{kernel} of $D$ if it is both independent and dominating.
 We call $D$ \textit{kernel perfect} if each of its induced subdigraphs has a kernel.
-A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arcs is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a chord or a pseudo-chord\footnote{A pseudo-chord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l$.}.
+A \textit{clique} of $D$ is a subset of $V$ such that any two vertices are connected by an arc. We call $D$ \textit{clique-acyclic} if for each clique of $D$ the induced subdigraph of one-way arc is acyclic, and call $D$ \textit{good} if it is clique-acyclic and every directed odd cycle has a (pseudo-)chord\footnote{A pseudo-chord is an arc $(v_i,v_{i-1})$ in a directed cycle $v_1 v_2\ldots v_l v_1$.}.
 
 \begin{theorem}[Borodin \textit{et al.} \cite{BoroKost98}]
 \label{thm:BoroKost98}
@@ -124,15 +126,16 @@ It is easy to verify that $Ax\leq b$ is TDI$/k$ if and only if $Bx\leq b$ is TDI
 
 Let $\sigma(D)$ denote the linear system consisting of the following inequalities:
 \begin{alignat}{4}
-x(v)+x(N^+_{D}(v)) &\geq 1 &\qquad &\forall ~ v~&\in V, \label{domination constraints}\\
+x(v)+x(N^+(v)) &\geq 1 &\qquad &\forall ~ v~&\in V, \label{domination constraints}\\
 x(Q)&\leq 1 &\qquad &\forall ~ Q &\in \mathcal{Q}, \label{independence constraints}\\
 x(v) &\geq 0 &\qquad &\forall ~ v~&\in V, \label{vertex nonnegativity}
 \end{alignat}
-where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N_D^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the set of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ to $\sigma(D)$.
+where $x(U)=\sum_{u\in U}x(u)$ for any $U\subseteq V$, $N^+(v)$ denotes the set of all out-neighbors of vertex $v$, and $\mathcal{Q}$ denotes the set of all cliques of $D$. Observe that incidence vectors of kernels of $D$ are precisely integral solutions $x\in \mathbb{Z}^A$ to $\sigma(D)$.
 The \textit{kernel polytope} of $D$, denoted by $K(D)$, is the convex hull of incidence vectors of all kernels of $D$.  The \textit{fractional kernel polytope} of $D$, denoted by $FK(D)$, is the set of all solutions $x\in \mathbb{R}^A$ to $\sigma(D)$. Clearly, $K(D)\subseteq FK(D)$.
 We call $D$ \textit{kernel ideal} if $FK(D')$ is integral for each induced subdigraph $D'$, and \textit{kernel Mengerian} if $\sigma(D')$ is TDI for each induced subdigraph $D'$.
 
-As described in Egres Open \cite{Egres}, the polyhedral description of kernels remains open. Chen \textit{et al.} \cite{ChenChen} attained a polyhedral characterization of kernels by replacing clique constraints $x(Q)\leq 1$ for $Q\in\mathcal{Q}$ with independence constraints $x(u)+x(v)\leq 1$ for $(u,v)\in A$. In this paper we show that kernels in digraph $D$ can be fully characterized by polyhedral approaches if $D$ is an orientation of line multigraphs.
+As described in Egres Open \cite{Egres}, the polyhedral description of kernels remains open. Chen \textit{et al.} \cite{ChenChen} attained a polyhedral characterization of kernels by replacing clique constraints $x(Q)\leq 1$ for $Q\in\mathcal{Q}$ with independence constraints $x(u)+x(v)\leq 1$ for $(u,v)\in A$.
+In this paper we show that kernels in orientations of line multigraph can be characterized polyhedrally.
 
 \begin{theorem}
 \label{thm:main}
@@ -151,9 +154,9 @@ Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} 
 
 \section{Preliminaries}
 \label{pre}
-Let $G=(V,E)$ be an undirected graph.
+Let $G=(V,E)$ be a graph.
 For $v\in V$, let $\delta(v)$ denote the set of all edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$.
-We call $\prec_v$ the \emph{preference} of $v$, and for edges $e$ and $f$ incident to $v$ we say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\preceq_v f$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$.
+We call $\prec_v$ the \emph{preference} of $v$, and for edges $e$ and $f$ incident to $v$ we say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\prec_v f$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$.
 We call $(G,\prec)$ a \emph{preference system} and say $(G,\prec)$ is \emph{simple} if $G$ is simple.
 For $e\in E$, let $\varphi(e)$ denote the set of all edges that dominate $e$ in $(G,\prec)$.
 Let $M$ be a matching of $G$. We say $M$ is \emph{stable} in $(G,\prec)$ if every edge of $G$ is dominated by some edge in $M$.
@@ -195,11 +198,13 @@ Let $(G,\prec)$ be a simple preference system. Then $\pi(G,\prec)$ is totally du
 \end{theorem}
 
 \section{Reductions}
-To study kernels in directed multigraphs, it suffices to work on its minimal spanning subdigraph that  preserves all the connection relations of vertices. In the remainder of this section, assume that $D$ is an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. Hence $D$ is a directed multigraph such that any two distinct vertices are joined by at most one arc in each direction.
 
 Kernels are closely related to stable matchings.
-When $D$ is clique-acyclic, let $e\prec_v f$ if $(e,f)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
-Hence each clique-acyclic orientation $D$ of line multigraph $L(H)$ is associated with a preference system $(H,\prec)$.
+Let $D$ be a clique-acyclic orientation of line multigraph $L(H)$.
+Since parallel edges in line multigraph $L(H)$ are oriented oppositely,
+it follows that any two vertices in $H$ are joined by at most two edges.
+Let $e\prec_v f$ if $(f,e)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
+Hence $D$ is associated with a preference system $(H,\prec)$.
 Recall that $\sigma(D)$ denotes the linear system which defines $FK(D)$.
 Consequently, $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$.
 The equivalence of constraints (\ref{vertex nonnegativity}) and constraints (\ref{edge nonnegativity}) follows directly. Constraints (\ref{domination constraints}) can be viewed as constraints (\ref{stability constraints}) because of the one to one correspondence between dominating vertex set $\{v\}\cup N^+_D(v)$ for $v\in V(D)$ and stable edge set $\varphi(e)$ for $e\in E(H)$.
@@ -222,10 +227,10 @@ Notice that constraints (\ref{constraints:1}), (\ref{constraints:2}) and (\ref{c
 
 \begin{lemma}
 \label{lem:reduct1}
-For parallel edges $e$ and $e'$ in $H$, there exists no edge $f$ such that $e\prec_v f \prec_v e'$, where $v$ is a common end of $e$ and $e'$.
+For parallel edges $e$ and $e'$ in $(H,\prec)$, there exists no edge $f$ such that $e\prec_v f \prec_v e'$, where $v$ is a common end of $e$ and $e'$.
 \end{lemma}
 \begin{proof}
-Since $D$ is clique-acyclic, by the construction of preference system $(H,\prec)$, the lemma follows directly.
+Since $D$ is a clique-acyclic orientation of line multigraph $L(H)$, and parallel edges are oriented oppositely, the lemma follows from the construction of preference system $(H,\prec)$.
 \end{proof}
 
 By Lemma \ref{lem:reduct1}, parallel edges play the same role in preference system $(H,\prec)$. Hence we turn to study underlying simple preference systems of $(H,\prec)$. Let $(\hat{H},\hat\prec)$ be a simple preference system, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. Before proceeding, we introduce a technical lemma.
@@ -414,7 +419,7 @@ Therefore $1/2$-integral points are not vertices of $FSM(G,\prec)$ as they can b
 Now we are ready to present a proof of our main theorem.
 
 \begin{proof}[Proof of Theorem \ref{thm:main}]
-It suffices to show the equivalence of $(i)$, $(iii)$ and $(iv)$. Without loss of generality, let $D$ be an orientation of line multigraph $L(H)$ such that any two vertices in $H$ are joined by at most two edges and parallel edges in $L(H)$ are orientated oppositely. When $D$ is good, $D$ is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, both of which admit no odd cycles with cyclic preferences, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
+It suffices to show the equivalence of $(i)$, $(iii)$ and $(iv)$. Let $D$ be an orientation of line multigraph $L(H)$ such that parallel edges in $L(H)$ are orientated oppositely. When $D$ is good, $D$ is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, both of which admit no odd cycles with cyclic preferences, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
 Hence $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}), where constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ constitute the Rothblum system $\pi(H,\prec)$.
 
 By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$.
@@ -424,7 +429,7 @@ By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integra
 
 By a theorem of Edmonds and Giles \cite{EdmoGile77}, implication $(iv)\implies (iii)$ follows directly.
 
-To prove implication $(iii)\implies (i)$, we assume the contrary. Observe that strong kernel idealness of $D$ implies the existence of kernels for any induced subdigraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without chords nor pseudo-chords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subdigraph induced on this clique. There is no kernel for this induced subdigraph, a contradiction. If $D$ contains a directed odd cycle without chords nor pseudo-chords, we restrict ourselves to the subdigraph induced on this directed odd cycle. There is no kernel for this induced subdigraph either, a contradiction.
+To prove implication $(iii)\implies (i)$, we assume the contrary. Observe that strong kernel idealness of $D$ implies the existence of kernels for any induced subdigraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without (pseudo-)chords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subdigraph induced on this clique. There is no kernel for this induced subdigraph, a contradiction. If $D$ contains a directed odd cycle without (pseudo-)chords, we restrict ourselves to the subdigraph induced on this directed odd cycle. There is no kernel for this induced subdigraph either, a contradiction.
 \end{proof}
 
 \section*{Acknowledgments}
