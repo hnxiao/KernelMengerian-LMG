@@ -103,7 +103,6 @@ Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} 
 A graph is called \textit{simple} if it contains neither loops nor parallel edges, and is called a \textit{multigraph} if it has parallel edges.
 A \textit{simple} digraph is an orientation of simple graph.
 A \textit{multi-digraph} is an orientation of multigraph.
-Orientations of multigraph considered in this paper always have parallel edges oriented in both directions.
 
 Let $G$ be a graph.
 The \textit{line graph} of $G$, denoted by $L(G)$, is a graph such that: each vertex of $L(G)$ corresponds to an edge of $G$, and two vertices of $L(G)$ are adjacent if and only if they are incident as edges in $G$.
@@ -154,6 +153,8 @@ Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} 
 
 \section{Preliminaries}
 \label{pre}
+Kernels are closely related to stable matchings.
+Before proceeding, we introduce the notation of stable matching and some results that will be used later.
 Let $G=(V,E)$ be a graph.
 For $v\in V$, let $\delta(v)$ denote the set of all edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$.
 We call $\prec_v$ the \emph{preference} of $v$, and for edges $e$ and $f$ incident to $v$ we say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\prec_v f$. Let $\prec$ be the set of all  $\prec_v$ for $v\in V$.
@@ -199,21 +200,19 @@ Let $(G,\prec)$ be a simple preference system. Then $\pi(G,\prec)$ is totally du
 
 \section{Reductions}
 
-Kernels are closely related to stable matchings.
-Let $D$ be a clique-acyclic orientation of line multigraph $L(H)$.
-Since parallel edges in line multigraph $L(H)$ are oriented oppositely,
-it follows that any two vertices in $H$ are joined by at most two edges.
-Let $e\prec_v f$ if $(f,e)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
+Given a clique-acyclic orientation $D$ of line multigraph $L(H)$,
+let $e\prec_v f$ if $(f,e)$ is an arc in $D$ for any two incident edges $e$ and $f$ with common end $v$ in $H$.
 Hence $D$ is associated with a preference system $(H,\prec)$.
 Recall that $\sigma(D)$ denotes the linear system which defines $FK(D)$.
 Consequently, $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$.
 The equivalence of constraints (\ref{vertex nonnegativity}) and constraints (\ref{edge nonnegativity}) follows directly. Constraints (\ref{domination constraints}) can be viewed as constraints (\ref{stability constraints}) because of the one to one correspondence between dominating vertex set $\{v\}\cup N^+_D(v)$ for $v\in V(D)$ and stable edge set $\varphi(e)$ for $e\in E(H)$.
-Observe that cliques of $D$ correspond to three types of edge sets in $H$:
+Observe that cliques of $D$ correspond to three types of edge set in $H$:
 \begin{itemize}
 \item $\delta(v)$ for $v\in V(H)$,
 \item nontrivial subsets of $\delta(v)$ for $v\in V(H)$,
-\item complete subgraphs of $H$ induced on three vertices (with parallel edges allowed).
+\item complete subgraphs of $H$ induced on three vertices.
 \end{itemize}
+Further notice that all three types of edge set allow parallel edges.
 Hence constraints (\ref{independence constraints}) can be viewed as constraints (\ref{matching constraints}) together with some extra constraints on $(H,\prec)$. Let $\mathcal{O}(H)$ denote the set of all complete subgraphs of $H$ induced on three vertices.
 Then $\sigma(D)$ can be reformulated in terms of preference system $(H,\prec)$:
 \begin{alignat}{4}
@@ -225,97 +224,65 @@ x(e) &\geq 0 &\qquad &\forall ~e &\in E(H)\label{constraints:5}.
 \end{alignat}
 Notice that constraints (\ref{constraints:1}), (\ref{constraints:2}) and (\ref{constraints:5}) constitute the Rothblum system $\pi(H,\prec)$ which defines $FSM(H,\prec)$. Constraints (\ref{constraints:3}) are redundant with respect to $\pi(H,\prec)$ due to constraints (\ref{constraints:2}). As we shall see, constraints (\ref{constraints:4}) are also redundant with respect to $\pi(H,\prec)$ when $D$ is good. Hence $FK(D)$ is essentially defined by Rothblum system $\pi(H,\prec)$, or equivalently, that $FK(D)=FSM(H,\prec)$, when $D$ is good.
 
-\begin{lemma}
-\label{lem:reduct1}
-For parallel edges $e$ and $e'$ in $(H,\prec)$, there exists no edge $f$ such that $e\prec_v f \prec_v e'$, where $v$ is a common end of $e$ and $e'$.
-\end{lemma}
-\begin{proof}
-Since $D$ is a clique-acyclic orientation of line multigraph $L(H)$, and parallel edges are oriented oppositely, the lemma follows from the construction of preference system $(H,\prec)$.
-\end{proof}
+However, $(H,\prec)$ is not simple.
+We apply the so called ``lift and project'' technique to put it into a simple preference system.
+To do this, we use the gadget introduced by Cechl\'{a}rov\'{a} and Fleiner \cite{CechFlei05} to put it into a simple preference system.
+We define a simple preference system $(H^\prime,\prec^\prime)$ from $(H,\prec)$
+by substitute each parallel edge of $H$ by a $6$-cycle with two hanging edges as in Figure \ref{gadget}
+such that $u u_0$ (\textit{resp.} $v v_0$) has the same order with $u v$ in $\prec_u$ (\textit{resp.} $\prec_v$).
+\begin{figure}
+\centering
+  \includegraphics[width=.65\linewidth]{KernelMengerian-gadget}
+  \caption{The gadget introduced for parallel edges}
+  \label{gadget}
+\end{figure}
+Observe that this transformation preserves the parity of all cycles with cyclic preferences and extends these cycles to large ones.
 
-By Lemma \ref{lem:reduct1}, parallel edges play the same role in preference system $(H,\prec)$. Hence we turn to study underlying simple preference systems of $(H,\prec)$. Let $(\hat{H},\hat\prec)$ be a simple preference system, where $\hat{H}$ is a spanning subgraph of $H$ obtained by keeping one edge between every pair of adjacent vertices and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$. Before proceeding, we introduce a technical lemma.
-
-\begin{lemma}
-\label{lem:reduct2}
-Let
-\begin{equation}\label{equ:syst.}
-Ax\leq b,~x\geq 0
-\end{equation}
-and
-\begin{equation}\label{equ:syst. with duplicate columns}
-\bar{A}\bar{x}\leq b,~\bar{x}\geq 0
-\end{equation}
-be two linear systems, where $\bar{A}$ is obtained from $A$ by duplicating some columns. If (\ref{equ:syst.}) is totally dual $1/k$-integral, then so is (\ref{equ:syst. with duplicate columns}), where $k\in \mathbb{N}$.
-\end{lemma}
-\begin{proof}
-It suffices to prove that the theorem holds for $\bar{A}$ with one duplicate column.
-Let $\bar{x}=(\bar{x}_1,\ldots,\bar{x}_{n+1})\in\mathbb{R}^{n+1}$ and $\bar{A}=(\bar{a}_1,\ldots,\bar{a}_{n+1})=(A,a_{k})$, where $a_k$ is the $k$th column of $A$. Let $\bar{c}=(\bar{c}_1,\ldots,\bar{c}_{n+1})\in \mathbb{Z}^{n+1}$ be an integral vector such that $\max\{\bar{c}^T \bar{x}: \bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$ is finite.
-
-Define $\hat{c}\in \mathbb{Z}^n$ by
-\begin{equation*}
-\hat{c}_i:=
-\begin{cases}
-\bar{c}_i & i\not=k,\\
-\max\{\bar{c}_k, \bar{c}_{n+1}\} & i=k,
-\end{cases}
-\end{equation*}
-and define $\hat{x}\in \mathbb{R}^n$ by
-\begin{equation*}
-\hat{x}_i:=
-\begin{cases}
-\bar{x}_i & i\not=k,\\
-\bar{x}_k+\bar{x}_{n+1} & i=k.
-\end{cases}
-\end{equation*}
-Clearly, $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\geq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$.
-We claim that equality always holds in this inequality.
-Given an optimal solution $\hat{x}^*$ to $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$,
-define $\bar{x}^*$ by $\bar{x}^*_i:=\hat{x}^*_i$ for $i\not=k,n+1$;
-if $\bar{c}_k>\bar{c}_{n+1}$, $\bar{x}^*_k:=\hat{x}^*_k$ and $\bar{x}^*_{n+1}:=0$, otherwise $\bar{x}^*_k:=0$ and $\bar{x}^*_{n+1}:=\hat{x}^*_k$.
-It is easy to verify that $\bar{x}^*$ is a feasible solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$.
-Moreover, $\hat{c}^T\hat{x}^*=\bar{c}^T\bar{x}^*$ implies $\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}\leq\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$.
-Hence equality follows.
-
-Since $Ax\leq b$ is TDI$/k$, there exists a dual optimal $1/k$-integral solution $y^*$ to $\max\{\hat{c}^T\hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$ such that $(y^*)^T b=\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}$, $(y^*)^T A\geq \hat{c}^T$ and $y^*\geq 0$. It follows that
-\begin{equation*}
-(y^*)^T \bar{A}=(y^*)^T (A,a_k)=((y^*)^T A,(y^*)^T a_k)\geq (\hat{c}^T,\hat{c}_k)\geq\bar{c}^T,
-\end{equation*}
-implying that $y^*$ is a feasible dual solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$. By the following inequalities
-\begin{equation*}
-(y^*)^T b=\max\{\hat{c}^T \hat{x}:A\hat{x}\leq b,~\hat{x}\geq 0\}=\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}\leq (y^*)^T b,
-\end{equation*} $y^*$ is also a dual optimal solution to $\max\{\bar{c}^T \bar{x}:\bar{A}\bar{x}\leq b,~\bar{x}\geq 0\}$, where the last inequality is from the weak duality theorem. Hence the lemma follows.
-\end{proof}
+We show that $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
+Moreover, the defining system $\pi(H,\prec)$ of $FSM(H,\prec)$ can be obtained from that of $FSM(H^\prime,\prec^\prime)$ after a series of Fourier-Motzkin elimination.
 
 \begin{lemma}
-\label{lem:reduct3}
-If $\pi(\hat{H},\hat\prec)$ is totally dual $1/k$-integral, then so is $\pi(H,\prec)$, where $k\in\mathbb{N}$.
+  If $\pi(H^\prime,\prec^\prime)$ is  totally dual integral, then so is $\pi(H,\prec)$.
 \end{lemma}
 \begin{proof}
-By Lemma \ref{lem:reduct1}, columns corresponding to parallel edges in the left hand side matrix of $\pi(H,\prec)$ are identical. Hence the left hand side matrix of $\pi(H,\prec)$ can be obtained from that of $\pi(\hat{H},\hat\prec)$ by duplicating columns corresponding to parallels edges. Then the lemma follows from Lemma \ref{lem:reduct2}.
+  We show that $\pi(H,\prec)$ can be obtained from $\pi(H^\prime,\prec^\prime)$ after a series of Fourier-Motzkin elimination.
+  It suffices to show the elimination process from a gadget to a edge.
+  Given a gadget arising from a edge as in Figure \ref{gadget}, we eliminate $u_1 v_2$ from $\pi(H^\prime, \prec^\prime)$. Then all constraints involving $x_{u_1 v_2}$ is replace by an equality $x_{u_0 u_1}=x_{v_0 v_2}$.
+  Similarly, eliminating $u_2 v_1$ yields an equality $x_{v_0 v_1}=x_{u_0 u_2}$.
+  Now we eliminate $u u_0$, which yildes $x(\delta^\prime(u))\leq x_{u_0 u_1}+x_{u_0 u_2}$ and $x_{u_0 u_2}\leq x(\varphi_u(uv))$.
+  Then after eliminating $u_0 u_1$ and $u_0 u_2$, we arrive at $x(\delta^\prime(u))-x_{v_0 v_1}-x_{v_0 v_2}\leq 0$ and $x_{v_0 v_1}-x(\varphi_u(uv))\leq 0$.
+  Then eliminating $v_0 v_1$ gives $x_{v v_0}+x(\varphi_v(u_0 v)+x(\varphi_u(u v_0))\geq 1$ and $x_{v v_0}+x(\delta^\prime(u))\leq 1$.
+  In the end, eliminating $v_0 v_2$ gives $x_{v v_0}+x(\varphi_v(u_0 v)+x(\varphi_u(u v_0))\geq 1$ again.
+  Notice that $x_{v v_0}+x(\varphi_v(u_0 v)+x(\varphi_u(u v_0))\geq 1$  is equivalent to $x_{uv}+x(\varphi(uv))\geq 1$,
+  and $x_{v v_0}+x(\delta^\prime(u))\leq 1$ is equivalent to $x(\delta(u))\leq 1$.
+  Hence we may replace $v v_0$ with the edge correponding to this gadget.
+  Now for each gadget in $H^\prime$, we may perform Fourier-Motzkin elimination in the order abover and only keep $v v_0$.
+  After all these operations, we arrive at $\pi(H,\prec)$ as desired.
+  As proved by Cook \cite{Cook83}, total dual integrality is preserved under Fourier-Motzkin elimination, the lemma follows.
 \end{proof}
 
-By Theorem \ref{thm:ChenDing12} and Lemma \ref{lem:reduct3}, we deduce that $\pi(H,\prec)$ is TDI$/2$. By the construction of $(H,\prec)$, when $D$ is good, $(H,\prec)$ admits no odd cycles with cyclic preferences. Hence constraints (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ when $D$ is good.
+By Theorem \ref{thm:ChenDing12} and Lemma, we deduce that $\pi(H,\prec)$ is TDI$/2$. By the construction of $(H,\prec)$, when $D$ is good, $(H,\prec)$ admits no odd cycles with cyclic preferences. Hence constraints (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ when $D$ is good.
 
 \begin{lemma}
 \label{lem:reduct4}
-$FSM(H,\prec)$ is integral if and only if $FSM(\hat{H},\hat\prec)$ is integral.
+If $FSM(H^\prime,\prec^\prime)$ is integral, then so is $FSM(H,\prec)$.
 \end{lemma}
 \begin{proof}
-For simplicity, assume that $H=(V,E)$ and $\hat{H}=(V,\hat{E})$.
-
-We prove the ``only if'' part by showing that $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$.
-Let $\hat{x}$ be a point in $FSM(\hat{H},\hat\prec)$ and define $x:=(\hat{x},0)\in \mathbb{R}^{\hat{E}}\times \mathbb{R}^{E-\hat{E}}$. To show that $x\in FSM(H,\prec)$, it suffices to prove that $x(\varphi(e))\geq 1$ for $e\in E-\hat{E}$. Let $e'\in \hat{E}$ be the edge parallel with $e\in E-\hat{E}$. By Lemma \ref{lem:reduct1}, $x(\varphi(e))=x(\varphi(e'))=\hat{x}(\varphi(e'))\geq 1$. Hence $FSM(\hat{H},\hat\prec)$ is a projection of $FSM(H,\prec)$.
-
-We prove the ``if'' part by showing that each vertex of $FSM(H,\prec)$ can be obtained from some vertex of $FSM(\hat{H},\hat\prec)$ by adding some zero entries.
-Let $x$ be a vertex of $FSM(H,\prec)$.
-We first show that $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$.
-Assume to the contrary that $x(e)\cdot x(e')\not=0$, then $x(e)=x(e')=1/2$ follows. Let $y$ and $z$ be duplicates of $x$, and further set $y (e):=z(e'):=1$ and $y (e'):=z(e):=0$. It follows that $x= (y + z)/2$. Clearly, $y,z\in FSM(H,\prec)$, contradicting to the fact that $x$ is a vertex.
-Now define $\hat{x}\in \mathbb{R}^{\hat{E}}$ by, for $e\in \hat{E}$, $\hat{x}(e):=x(e)+x(e')$, where $e'\in E-\hat{E}$ is parallel with $e$. By Lemma \ref{lem:reduct1}, it is easy to verify that $\hat{x}\in FSM(\hat{H},\hat\prec)$. We claim that $\hat{x}$ is a vertex of $FSM(\hat{H},\hat\prec)$. Assume to the contrary that there exist $\hat{x}_1, \hat{x}_2 \in FSM(\hat{H},\hat\prec)$ such that $\hat{x}=\alpha \hat{x}_1+ (1-\alpha)\hat{x}_2$, where $0<\alpha<1$. For $i=1,2$, we extend $\hat{x}_i\in \mathbb{R}^{\hat{E}}$ to $x_i\in \mathbb{R}^{E}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x_i(e):=\hat{x}_i(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x_i(e):=\hat{x}_i(e)$ and $x_i(e'):=0$, otherwise $x_i(e):=0$ and $x_i(e'):=\hat{x}_i(e)$. By Lemma \ref{lem:reduct1}, it is easy to see that $x_1,x_2\in FSM(H,\prec)$.
-Since $x(e)\cdot x(e')=0$ for parallel edges $e$ and $e'$, $x=\alpha x_1+(1-\alpha) x_2$ follows, a contradiction. Hence $\hat{x}$ is vertex of $FSM(\hat{H},\hat\prec)$. Therefore each vertex $x$ of $FSM(H,\prec)$ is associated with a vertex $\hat{x}$ of $FSM(\hat{H},\hat\prec)$, and $x$ can be obtained from $\hat{x}$ by, for $e\in \hat{E}$ without parallel edges in $H$, $x(e):=\hat{x}(e)$; for $e\in\hat{E}$ and its parallel edge $e'\in E-\hat{E}$, if $x(e)>x(e')$, $x(e):=\hat{x}(e)$ and $x(e'):=0$, otherwise $x(e):=0$ and $x(e'):=\hat{x}(e)$.
+We show that $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
+Let $x$ be a point in $FSM(H,\prec)$, $e$ be a parallel edge with endpoints $u,v$ in $H$.
+We define the values of gadget corresponding to $e_{uv}$ as follows:
+\begin{enumerate}
+  \item Set $x_{u u_0}=x_{v v_0}:=x_{e}$;
+  \item Set $x_{u_0 u_1}=x_{v_0 v_2}:=1-x_{e_{uv}}-x(\varphi_u(e))$;
+  \item Set $x_{u_0 u_2}=x_{v_0 v_1}:=x(\varphi_u (e))$;
+  \item Set $x_{u_2 v_1}:=1-x(\varphi_u (e))$.
+\end{enumerate}
+It is easy to check that $x^\prime$ is feasible to $FSM(H^\prime, \prec^\prime)$.
+Hence $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
 \end{proof}
 
 We end this section with a summary. When $D$ is clique-acyclic, it is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
-Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ and $FK(D)=FSM(H,\prec)$ follows. To show $FK(D)$ is integral, by Lemma \ref{lem:reduct4} it suffices to show that $FSM(\hat{H},\hat\prec)$ is integral. To show $\sigma(D)$ is TDI, by Lemma \ref{lem:reduct3} it suffices to show $\pi(\hat{H},\hat\prec)$ is TDI. Moreover, when $D$ is good both $(H,\prec)$ and $(\hat{H},\hat\prec)$ admit no odd cycles with cyclic preferences.
+Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ and $FK(D)=FSM(H,\prec)$ follows. To show $FK(D)$ is integral, by Lemma \ref{lem:reduct4} it suffices to show that $FSM(\hat{H},\hat\prec)$ is integral. To show $\sigma(D)$ is TDI, by Lemma it suffices to show $\pi(\hat{H},\hat\prec)$ is TDI. Moreover, when $D$ is good both $(H,\prec)$ and $(\hat{H},\hat\prec)$ admit no odd cycles with cyclic preferences.
 
 \section{Proofs}
 Before presenting our proof of the main theorem, we exhibit some properties of simple preference systems admitting no odd cycles with cyclic preferences.
@@ -425,15 +392,18 @@ Hence $\sigma(D)$ can be viewed as a linear system defined on preference system 
 By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$.
 Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subdigraphs of $D$. Hence $(i)\implies (iii)$.
 
-By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct3}. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subdigraphs of $D$. Hence $(iii)\implies (iv)$.
+By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integrality of $\pi(H,\prec)$ follows from Lemma. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subdigraphs of $D$. Hence $(iii)\implies (iv)$.
 
 By a theorem of Edmonds and Giles \cite{EdmoGile77}, implication $(iv)\implies (iii)$ follows directly.
 
 To prove implication $(iii)\implies (i)$, we assume the contrary. Observe that strong kernel idealness of $D$ implies the existence of kernels for any induced subdigraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without (pseudo-)chords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subdigraph induced on this clique. There is no kernel for this induced subdigraph, a contradiction. If $D$ contains a directed odd cycle without (pseudo-)chords, we restrict ourselves to the subdigraph induced on this directed odd cycle. There is no kernel for this induced subdigraph either, a contradiction.
 \end{proof}
 
+\section{Concluding Remarks}
+Super-orientations do not apply. A counter exmaple is attched.
+
 \section*{Acknowledgments}
-The author would like to thank Prof. Wenan Zang for his invaluable suggestions.
+The author would like to thank Wenan Zang for his invaluable suggestions.
 
 \bibliographystyle{siam}
 \bibliography{KernelMengerian}
