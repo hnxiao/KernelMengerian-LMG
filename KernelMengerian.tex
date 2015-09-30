@@ -224,7 +224,10 @@ x(S) &\leq 1 &\qquad \emptyset\subset S\subset \delta(v),\quad &\forall ~v&\in V
 x(O) &\leq 1 &\qquad &\forall ~O&\in \mathcal{O}(H),\label{constraints:4}\\
 x(e) &\geq 0 &\qquad &\forall ~e &\in E(H)\label{constraints:5}.
 \end{alignat}
-Notice that constraints (\ref{constraints:1}), (\ref{constraints:2}) and (\ref{constraints:5}) form the Rothblum system $\pi(H,\prec)$ which defines $FSM(H,\prec)$. Constraints (\ref{constraints:3}) are redundant with respect to $\pi(H,\prec)$ due to constraints (\ref{constraints:2}). As we shall see, constraints (\ref{constraints:4}) are also redundant with respect to $\pi(H,\prec)$ when $D$ is good. Hence $FK(D)$ is essentially defined by Rothblum system $\pi(H,\prec)$, or equivalently, that $FK(D)=FSM(H,\prec)$, when $D$ is good.
+Notice that constraints (\ref{constraints:1}), (\ref{constraints:2}) and (\ref{constraints:5}) form the Rothblum system $\pi(H,\prec)$ which defines $FSM(H,\prec)$.
+Constraints (\ref{constraints:3}) are redundant with respect to $\pi(H,\prec)$ due to constraints (\ref{constraints:2}).
+As we shall see, constraints (\ref{constraints:4}) are also redundant with respect to $\pi(H,\prec)$.
+Hence $FK(D)$ is essentially defined by Rothblum system $\pi(H,\prec)$, or equivalently that $FK(D)=FSM(H,\prec)$.
 
 Observe that $H$ is a multigraph.
 To bridge the gap between simple preference system and $(H,\prec)$,
@@ -241,11 +244,10 @@ such that $u u_0$ (\textit{resp.} $v v_0$) has the same order with $u v$ in $\pr
 Observe that the construction preserves the parity of all cycles with cyclic preferences in $H$.
 
 \begin{lemma}
-\label{lem:reduct4}
-If $FSM(H^\prime,\prec^\prime)$ is integral, then so is $FSM(H,\prec)$.
+\label{lem:reduct1}
+$FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
 \end{lemma}
 \begin{proof}
-We show that $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
 Take $x\in FSM(H,\prec)$.
 For each parallel edge $e$ with endpoints $u$ and $v$ in $H$,
 we define the value of edges in the gagdet corresponding to $e$ as follows:
@@ -258,39 +260,41 @@ we define the value of edges in the gagdet corresponding to $e$ as follows:
 \end{enumerate}
 Next for each edge $f$ without parallel edges in $H$, set $x^\prime_f:=x_f$.
 It is easy to check that $x^\prime\in FSM(H^\prime, \prec^\prime)$.
-Hence $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$ and the lemma follows.
+Hence $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
 \end{proof}
 
+By Theorem \ref{thm:AbelRoth94} and Lemma \ref{lem:reduct1}, $FSM(H,\prec)$ is $1/2$-integral since $FSM(H^\prime,\prec^\prime)$ is $1/2$-integral.
+Hence constraints (\ref{constraints:4}) only work for vertices in $FSM(H,\prec)$ with $x(O)=3/2$, where $O\in \mathcal{O}(H)$.
+However by Theorem \ref{thm:AbelRoth94} again, each $O$ with $x(O)=3/2$ admits a $3$-cycle with cyclic preferences which arises from a directed $3$-cycle from $D$, contradicting to the assumption that $D$ is clique-acyclic.
+Therefore, constraints (\ref{constraints:4}) are unbinding for all vertices of $FSM(H,\prec)$.
+
 \begin{lemma}
+\label{lem:reduct2}
   If $\pi(H^\prime,\prec^\prime)$ is  totally dual integral, then so is $\pi(H,\prec)$.
 \end{lemma}
 \begin{proof}
-  We show that $\pi(H,\prec)$ can be obtained from $\pi(H^\prime,\prec^\prime)$ after a series of Fourier-Motzkin elimination.
-  It suffices to demonstrate one elimination process from a gadget to a edge.
+  We show that $\pi(H,\prec)$ can be obtained from $\pi(H^\prime,\prec^\prime)$ after a series of Fourier-Motzkin eliminations.
+  It suffices to demonstrate one elimination process from a gadget to an edge.
   Given a gadget arising from edge $e$ as in Figure \ref{gadget}, eliminate $u_1 v_2$ from $\pi(H^\prime,\prec^\prime)$ first.
   Then all constraints involving $x_{u_1 v_2}$ are replaced by equality $x_{u_0 u_1}=x_{v_0 v_2}$.
   Similarly, eliminating $u_2 v_1$ yields equality $x_{v_0 v_1}=x_{u_0 u_2}$.
   Next eliminating $u u_0$ gives $x(\delta (u)\backslash\{u u_0\})\leq x_{u_0 u_1}+x_{u_0 u_2}$ and $x_{u_0 u_2}\leq x(\varphi_u(uv))$.
   After eliminating $u_0 u_1$ and $u_0 u_2$, we arrive at $x(\delta(u)\backslash\{u u_0\})\leq x_{v_0 v_1}+x_{v_0 v_2}$ and $x_{v_0 v_1}\leq x(\varphi_u(uv))$.
-  In the end, canceling $v_0 v_1$ and $v_0 v_2$ gives $x_{v v_0}+x(\varphi_v(u_0 v)+x(\varphi_u(u v_0))\geq 1$ and $x_{v v_0}+x(\delta(u)\backslash\{u u_0\})\leq 1$.
+  In the end, canceling $v_0 v_1$ and $v_0 v_2$ gives $x_{v v_0}+x(\varphi_v(v v_0)+x(\varphi_u(u u_0))\geq 1$ and $x_{v v_0}+x(\delta(u)\backslash\{u u_0\})\leq 1$.
   Besides, $x_{v v_0}+x(\delta(v)\backslash\{v v_0\})\leq 1$ is unchanged.
-  Notice that $x_{v v_0}+x(\varphi_v(u_0 v)+x(\varphi_u(u v_0))\geq 1$ can be viewed as $x(\varphi(e))\geq 1$,
+  Notice that $x_{v v_0}+x(\varphi_v(v v_0)+x(\varphi_u(u u_0))\geq 1$ can be viewed as $x(\varphi(e))\geq 1$,
   $x_{v v_0}+x(\delta (u)\backslash\{u u_0\})\leq 1$ can be viewed as $x(\delta(u))\leq 1$,
   and $x_{v v_0}+x(\delta(v)\backslash\{v v_0\})\leq 1$ can be viewed as $x(\delta(v))\leq 1$.
   %as during the elimination process we may find that $x_{u u_0}=x_{v v_0}$.
   Hence we reduce the linear system involving the gadget to a linear system only related to its corresponding edge $e$.
-  Performing Fourier-Motzkin elimination in such an order for each gadget in $H^\prime$ leads to a linear system defined on $(H,\prec)$, which is precisely the same with $\pi(H,\prec)$ (renaming variables and removing redundant constraints if necessary).
-  As proved by Cook \cite{Cook83}, total dual integrality is preserved under Fourier-Motzkin elimination, hence the lemma follows.
+  Performing Fourier-Motzkin eliminations in such an order for each gadget in $H^\prime$ leads to a linear system defined on $(H,\prec)$, which is precisely the same with $\pi(H,\prec)$ (renaming variables and removing redundant constraints if necessary).
+  As proved by Cook \cite{Cook83}, total dual integrality is preserved under Fourier-Motzkin elimination of a variable if it occurs in each constraint with coefficient $0$ or $\pm 1$.
+  Hence the lemma follows.
 \end{proof}
 
-We end this section with a summary.
-When $D$ is clique-acyclic, it is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
-Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$ and $FK(D)=FSM(H,\prec)$ follows.
-To show $FK(D)$ is integral, by Lemma \ref{lem:reduct4} it suffices to show that $FSM(\hat{H},\hat\prec)$ is integral. To show $\sigma(D)$ is TDI, by Lemma it suffices to show $\pi(\hat{H},\hat\prec)$ is TDI.
-Moreover, when $D$ is good both $(H,\prec)$ and $(\hat{H},\hat\prec)$ admit no odd cycles with cyclic preferences.
-
 \section{Proofs}
-Before presenting our proof of the main theorem, we exhibit some properties of simple preference systems admitting no odd cycles with cyclic preferences.
+Observe that when $D$ is good, both $(H,\prec)$ and $(H^\prime,\prec^\prime)$ admit no odd cycles with cyclic preferences.
+Hence we exhibit some properties of simple preference systems admitting no odd cycles with cyclic preferences first.
 \begin{lemma}
 \label{lem:prf1}
 Let $(G,\prec)$ be a simple preference system. If $(G,\prec)$ admits no odd cycles with cyclic preferences, then $SM(G,\prec)=FSM(G,\prec)$.
@@ -391,24 +395,44 @@ Therefore $1/2$-integral points are not vertices of $FSM(G,\prec)$ as they can b
 Now we are ready to present a proof of our main theorem.
 
 \begin{proof}[Proof of Theorem \ref{thm:main}]
-It suffices to show the equivalence of $(i)$, $(iii)$ and $(iv)$. Let $D$ be an orientation of line multigraph $L(H)$ such that parallel edges in $L(H)$ are orientated oppositely. When $D$ is good, $D$ is associated with a preference system $(H,\prec)$ and a simple preference system $(\hat{H},\hat\prec)$, both of which admit no odd cycles with cyclic preferences, where $\hat{H}$ is a simple spanning subgraph of $H$ maximizing the edge set and $\hat\prec$ is the restriction of $\prec$ on $\hat{H}$.
-Hence $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}), where constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ form the Rothblum system $\pi(H,\prec)$.
+It suffices to show the equivalence of $(i)$, $(iii)$ and $(iv)$. Let $D$ be a good orientation of line multigraph $L(H)$.
+Construct preference system $(H,\prec)$ from $D$, and construct simple preference system $(H^\prime,\prec^\prime)$ from $(H,\prec)$ by substituting each parallel edge with a gadget as in Figure \ref{gadget}.
+By the construction, $(H^\prime,\prec^\prime)$ admits no odd cycles with cyclic preferences.
+Now $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$ and consisting of constraints (\ref{constraints:1})-(\ref{constraints:5}).
+Observe that constraints (\ref{constraints:1}), (\ref{constraints:2}) and $(\ref{constraints:5})$ form the Rothblum system $\pi(H,\prec)$, and constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant with respect to $\pi(H,\prec)$.
+Hence $FK(D)=FSM(H,\prec)$ follows.
 
-By Lemma \ref{lem:prf1}, $FSM(\hat{H},\hat\prec)$ is integral. Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct4}. Hence constraints (\ref{constraints:3}) and (\ref{constraints:4}) are both redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$.
-Therefore $FK(D)=FSM(H,\prec)$, implying that $FK(D)$ is integral. Similar arguments apply to any induced subdigraphs of $D$. Hence $(i)\implies (iii)$.
+By Lemma \ref{lem:prf1}, $FSM(H^\prime,\prec^\prime)$ is integral.
+Integrality of $FSM(H,\prec)$ follows from Lemma \ref{lem:reduct1}, implying $FK(D)$ is integral.
+Similar arguments apply to any induced subdigraphs of $D$. Hence $(i)\implies (iii)$.
 
-By Corollary \ref{cor:prf2}, $\pi(\hat{H},\hat\prec)$ is TDI. Total dual integrality of $\pi(H,\prec)$ follows from Lemma. Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subdigraphs of $D$. Hence $(iii)\implies (iv)$.
+By Corollary \ref{cor:prf2}, $\pi(H^\prime,\prec^\prime)$ is TDI.
+Total dual integrality of $\pi(H,\prec)$ follows from Lemma \ref{lem:reduct2}.
+Since $\pi(H,\prec)$ is part of $\sigma(D)$ and the other constraints (\ref{constraints:3})-(\ref{constraints:4}) are redundant in $\sigma(D)$ with respect to $\pi(H,\prec)$, total dual integrality of $\sigma(D)$ follows. Similar arguments apply to any induced subdigraphs of $D$. Hence $(iii)\implies (iv)$.
 
 By a theorem of Edmonds and Giles \cite{EdmoGile77}, implication $(iv)\implies (iii)$ follows directly.
 
-To prove implication $(iii)\implies (i)$, we assume the contrary. Observe that strong kernel idealness of $D$ implies the existence of kernels for any induced subdigraphs of $D$. Let $D$ be a digraph such that D is kernel ideal but not good. Then there exists either a clique containing directed cycles or a directed odd cycle without (pseudo-)chords in $D$. We show that neither case is possible. If $D$ has a clique containing directed cycles, we consider the subdigraph induced on this clique. There is no kernel for this induced subdigraph, a contradiction. If $D$ contains a directed odd cycle without (pseudo-)chords, we restrict ourselves to the subdigraph induced on this directed odd cycle. There is no kernel for this induced subdigraph either, a contradiction.
+To prove implication $(iii)\implies (i)$, we assume the contrary.
+Observe that $D$ being kernel ideal implies the existence of kernels for any induced subdigraphs of $D$.
+Let $D$ be a digraph such that $D$ is kernel ideal but not good.
+Then there either exists a clique containing directed cycles or exists a directed odd cycle without (pseudo-)chords.
+We show that neither case is possible.
+If $D$ has a clique containing directed cycles, we consider the subdigraph induced on this clique.
+There is no kernel for this induced subdigraph, a contradiction.
+If $D$ contains a directed odd cycle without (pseudo-)chords, we restrict ourselves to the subdigraph induced on this directed odd cycle.
+There is no kernel for this induced subdigraph either, a contradiction.
 \end{proof}
 
 \section{Discussions}
-Super-orientations do not apply. A counter exmaple is attched.
+
+Superorientations seems to break the connection between kernels and stable matchings.
+And being kernel perfect is not sufficient for being kernel ideal in superorientations, not to mention being kernel mengerian.
+We may consider the digraph $D=(V,A)$, where $V=\{1,2,3,4\}$ and $A=\{(1,2),(2,1),(3,2),(4,1),(4,3)\}$.
+This digraph can be view as a superorientation of a $4$-cycle, which is a line graph.
+However, $FK(D)$ has three vertices, among which there exists half-integral one.
 
 \section*{Acknowledgments}
-The author is grateful to Wenan Zang for his invaluable suggestions.
+The author is grateful to Wenan Zang for his valuable suggestions.
 
 \bibliographystyle{siam}
 \bibliography{KernelMengerian}
