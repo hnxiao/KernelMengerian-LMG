@@ -154,7 +154,7 @@ Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} 
 \section{Preliminaries}
 \label{pre}
 Kernels are closely related to stable matchings.
-Before proceeding, we introduce the notation of stable matching and some results that will be used later.
+Before proceeding, we introduce the notation of stable matching and some theorems of stable matching first.
 Let $G=(V,E)$ be a graph.
 For $v\in V$, let $\delta(v)$ denote the set of edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$.
 We call $\prec_v$ the \emph{preference} of $v$, and for edges $e$ and $f$ incident to $v$ we say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\prec_v f$.
@@ -209,11 +209,11 @@ Recall that $\sigma(D)$ denotes the linear system which defines $FK(D)$.
 Consequently, $\sigma(D)$ can be viewed as a linear system defined on preference system $(H,\prec)$.
 The equivalence of constraints (\ref{vertex nonnegativity}) and constraints (\ref{edge nonnegativity}) follows directly. Constraints (\ref{domination constraints}) can be viewed as constraints (\ref{stability constraints}) because of the one to one correspondence between dominating vertex set $\{v\}\cup N^+_D(v)$ for $v\in V(D)$ and stable edge set $\varphi(e)$ for $e\in E(H)$.
 Observe that cliques of $D$ correspond to three types of edge set in $H$:
-\begin{itemize}
+\begin{enumerate}[label={(\alph*)}, itemsep=0.2mm]
 \item $\delta(v)$ for $v\in V(H)$,
 \item nontrivial subsets of $\delta(v)$ for $v\in V(H)$,
 \item complete subgraphs of $H$ induced on three vertices,
-\end{itemize}
+\end{enumerate}
 and all three types allow parallel edges.
 Hence constraints (\ref{independence constraints}) can be viewed as constraints (\ref{matching constraints}) together with some extra constraints on $(H,\prec)$. Let $\mathcal{O}(H)$ denote the set of all complete subgraphs of $H$ induced on three vertices.
 Then $\sigma(D)$ can be reformulated in terms of preference system $(H,\prec)$:
@@ -241,7 +241,7 @@ by substituting each parallel edge $e$ with endpoints $u$ and $v$ in $H$ by a $6
   \label{gadget}
 \end{figure}
 such that $u u_0$ (\textit{resp.} $v v_0$) has the same order with $u v$ in $\prec_u$ (\textit{resp.} $\prec_v$).
-Observe that the construction preserves the parity of all cycles with cyclic preferences in $H$.
+Notice that the construction preserves the parity of cycles with cyclic preferences in $H$.
 
 \begin{lemma}
 \label{lem:reduct1}
@@ -250,23 +250,24 @@ $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
 \begin{proof}
 Take $x\in FSM(H,\prec)$.
 For each parallel edge $e$ with endpoints $u$ and $v$ in $H$,
-we define the value of edges in the gagdet corresponding to $e$ as follows:
-\begin{enumerate}
-  \item Set $x^\prime_{u u_0}=x^\prime_{v v_0}:=x_{e}$;
-  \item Set $x^\prime_{u_0 u_1}=x^\prime_{v_0 v_2}:=1-x_{e}-x(\varphi_u(e))$;
-  \item Set $x^\prime_{u_0 u_2}=x^\prime_{v_0 v_1}:=x(\varphi_u (e))$;
-  \item Set $x^\prime_{u_1 v_2}:=x_e +x(\varphi_u (e))$;
-  \item Set $x^\prime_{u_2 v_1}:=1-x(\varphi_u (e))$.
+we set the value of edges in the gadget corresponding to $e$ as follows:
+\begin{enumerate}[label={(\alph*)}, itemsep=0.2mm]
+  \item $x^\prime_{u u_0}=x^\prime_{v v_0}:=x_{e}$;
+  \item $x^\prime_{u_0 u_1}=x^\prime_{v_0 v_2}:=1-x_{e}-x(\varphi_u(e))$;
+  \item $x^\prime_{u_0 u_2}=x^\prime_{v_0 v_1}:=x(\varphi_u (e))$;
+  \item $x^\prime_{u_1 v_2}:=x_e +x(\varphi_u (e))$;
+  \item $x^\prime_{u_2 v_1}:=1-x(\varphi_u (e))$.
 \end{enumerate}
-Next for each edge $f$ without parallel edges in $H$, set $x^\prime_f:=x_f$.
+For each edge $f$ without parallel edges in $H$, set $x^\prime_f:=x_f$.
 It is easy to check that $x^\prime\in FSM(H^\prime, \prec^\prime)$.
 Hence $FSM(H,\prec)$ is a projection of $FSM(H^\prime,\prec^\prime)$.
 \end{proof}
 
 By Theorem \ref{thm:AbelRoth94} and Lemma \ref{lem:reduct1}, $FSM(H,\prec)$ is $1/2$-integral since $FSM(H^\prime,\prec^\prime)$ is $1/2$-integral.
-Hence constraints (\ref{constraints:4}) only work for vertices in $FSM(H,\prec)$ with $x(O)=3/2$, where $O\in \mathcal{O}(H)$.
-However by Theorem \ref{thm:AbelRoth94} again, each $O$ with $x(O)=3/2$ admits a $3$-cycle with cyclic preferences which arises from a directed $3$-cycle from $D$, contradicting to the assumption that $D$ is clique-acyclic.
-Therefore, constraints (\ref{constraints:4}) are unbinding for all vertices of $FSM(H,\prec)$.
+Hence vertices in $FSM(H,\prec)$ with $x(O)=3/2$ where $O\in \mathcal{O}(H)$ are the only possible vertices of $FSM(H,\prec)$ that violate constraints (\ref{constraints:4}).
+However each $O$ with $x(O)=3/2$ leads to a $3$-cycle with cyclic preferences which arises from a directed $3$-cycle in $D$, contradicting to the assumption that $D$ is clique-acyclic.
+It follows that constraints (\ref{constraints:4}) are unbinding for all vertices of $FSM(H,\prec)$.
+Hence constraints (\ref{constraints:4}) are redundant with respect to $\pi(H,\prec)$
 
 \begin{lemma}
 \label{lem:reduct2}
@@ -275,18 +276,18 @@ Therefore, constraints (\ref{constraints:4}) are unbinding for all vertices of $
 \begin{proof}
   We show that $\pi(H,\prec)$ can be obtained from $\pi(H^\prime,\prec^\prime)$ after a series of Fourier-Motzkin eliminations.
   It suffices to demonstrate one elimination process from a gadget to an edge.
-  Given a gadget arising from edge $e$ as in Figure \ref{gadget}, eliminate $u_1 v_2$ from $\pi(H^\prime,\prec^\prime)$ first.
+  Given a gadget as in Figure \ref{gadget} arising from edge $e$, eliminate $u_1 v_2$ from $\pi(H^\prime,\prec^\prime)$ first.
   Then all constraints involving $x_{u_1 v_2}$ are replaced by equality $x_{u_0 u_1}=x_{v_0 v_2}$.
   Similarly, eliminating $u_2 v_1$ yields equality $x_{v_0 v_1}=x_{u_0 u_2}$.
   Next eliminating $u u_0$ gives $x(\delta (u)\backslash\{u u_0\})\leq x_{u_0 u_1}+x_{u_0 u_2}$ and $x_{u_0 u_2}\leq x(\varphi_u(uv))$.
   After eliminating $u_0 u_1$ and $u_0 u_2$, we arrive at $x(\delta(u)\backslash\{u u_0\})\leq x_{v_0 v_1}+x_{v_0 v_2}$ and $x_{v_0 v_1}\leq x(\varphi_u(uv))$.
   In the end, canceling $v_0 v_1$ and $v_0 v_2$ gives $x_{v v_0}+x(\varphi_v(v v_0)+x(\varphi_u(u u_0))\geq 1$ and $x_{v v_0}+x(\delta(u)\backslash\{u u_0\})\leq 1$.
   Besides, $x_{v v_0}+x(\delta(v)\backslash\{v v_0\})\leq 1$ is unchanged.
-  Notice that $x_{v v_0}+x(\varphi_v(v v_0)+x(\varphi_u(u u_0))\geq 1$ can be viewed as $x(\varphi(e))\geq 1$,
-  $x_{v v_0}+x(\delta (u)\backslash\{u u_0\})\leq 1$ can be viewed as $x(\delta(u))\leq 1$,
-  and $x_{v v_0}+x(\delta(v)\backslash\{v v_0\})\leq 1$ can be viewed as $x(\delta(v))\leq 1$.
-  %as during the elimination process we may find that $x_{u u_0}=x_{v v_0}$.
-  Hence we reduce the linear system involving the gadget to a linear system only related to its corresponding edge $e$.
+  Hence all constraints involving edges from the gadget are reduced to three constraints
+  $x_{v v_0}+x(\varphi_v(v v_0)+x(\varphi_u(u u_0))\geq 1$,
+  $x_{v v_0}+x(\delta (u)\backslash\{u u_0\})\leq 1$,
+  and $x_{v v_0}+x(\delta(v)\backslash\{v v_0\})\leq 1$,
+  which can be viewed as $x(\varphi(e))\geq 1$, $x(\delta(u))\leq 1$, and $x(\delta(v))\leq 1$ respectively.
   Performing Fourier-Motzkin eliminations in such an order for each gadget in $H^\prime$ leads to a linear system defined on $(H,\prec)$, which is precisely the same with $\pi(H,\prec)$ (renaming variables and removing redundant constraints if necessary).
   As proved by Cook \cite{Cook83}, total dual integrality is preserved under Fourier-Motzkin elimination of a variable if it occurs in each constraint with coefficient $0$ or $\pm 1$.
   Hence the lemma follows.
@@ -424,12 +425,12 @@ There is no kernel for this induced subdigraph either, a contradiction.
 \end{proof}
 
 \section{Discussions}
-
-Superorientations seems to break the connection between kernels and stable matchings.
-And being kernel perfect is not sufficient for being kernel ideal in superorientations, not to mention being kernel mengerian.
-We may consider the digraph $D=(V,A)$, where $V=\{1,2,3,4\}$ and $A=\{(1,2),(2,1),(3,2),(4,1),(4,3)\}$.
-This digraph can be view as a superorientation of a $4$-cycle, which is a line graph.
-However, $FK(D)$ has three vertices, among which there exists half-integral one.
+It is natural to consider whether our result applies to superorientations of line multigraph.
+However, the connection between kernels and stable matchings seems to be broken by superorientations.
+Indeed, consider the digraph $D=(V,A)$, where $V=\{1,2,3,4\}$ and $A=\{(1,2),(2,1),(3,1),(3,4),(4,2)\}$.
+Clearly, $D$ is a good superorientation of a $4$-cycle which is a line graph.
+However we cannot construct a preference system with strict linear preferences from $D$ such that kernels in $D$ correspond to stable matchings in the preference system.
+Besides, the fractional kernel polytope $FK(D)$ has three vertices $(1,0,0,1)$, $(1/2,1/2,0,1/2)$ and $(0,1,1,0)$ including a fractional one.
 
 \section*{Acknowledgments}
 The author is grateful to Wenan Zang for his valuable suggestions.
