@@ -84,7 +84,7 @@ called kernel perfect if every induced subdigraph $D'$ has a kernel,
 called kernel ideal if $FK(D')$ is integral for each induced subdigraph $D'$,
 and called kernel Mengerian if $\sigma(D')$ is TDI for each induced subdigraph $D'$.
 We show that an orientation of line multigraph is kernel perfect iff it is kernel ideal iff it is kernel Mengerian.
-Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on stable matching problem.
+Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} on kernel perfect digraphs and generalizes the theorem of Kir\'{a}ly and Pap \cite{KiraPap08} on the stable matching problem.
 
 \hfill
 
@@ -154,7 +154,7 @@ Our result strengthens the theorem of Borodin \textit{et al.} \cite{BoroKost98} 
 \section{Preliminaries}
 \label{pre}
 Kernels are closely related to stable matchings.
-Before proceeding, we introduce the notation of stable matching and some theorems of stable matching first.
+Before proceeding, we introduce some notations and some theorems of the stable matching problem first.
 Let $G=(V,E)$ be a graph.
 For $v\in V$, let $\delta(v)$ denote the set of edges incident to $v$ and $\prec_v$ be a strict linear order on $\delta(v)$.
 We call $\prec_v$ the \emph{preference} of $v$, and for edges $e$ and $f$ incident to $v$ we say $v$ \emph{prefers} $e$ to $f$ or $e$ \emph{dominates} $f$ if $e\prec_v f$.
@@ -293,9 +293,23 @@ Hence constraints (\ref{constraints:4}) are redundant with respect to $\pi(H,\pr
   Hence the lemma follows.
 \end{proof}
 
+By Lemma \ref{lem:reduct1} and Lemma \ref{lem:reduct2}, we generalize the theorem of Chen \textit{et al.} \cite{ChenDing12} on the stable matching problem to multigraphs.
+\begin{corollary}
+  Let $(G,\prec)$ be a preference system, where $G$ is a multigraph.
+  Then $\pi(G,\prec)$ is $1/2$-totally dual integral.
+  Moreover, $\pi(G,\prec)$ is totally dual integral if and only if $FSM(G,\prec)=SM(G,\prec)$.
+\end{corollary}
+
+Moreover, we have the following corollary for kernels in clique-acyclic orientations of line multigraph.
+\begin{corollary}
+  Let $D$ be a clique-acyclic orientation of line multigraph.
+  Then $\sigma(D)$ is $1/2$-totally dual integral.
+  Moreover, $\sigma(D)$ is totally dual integral if and only if $FK(D)=K(D)$.
+\end{corollary}
+
 \section{Proofs}
 Observe that when $D$ is good, both $(H,\prec)$ and $(H^\prime,\prec^\prime)$ admit no odd cycles with cyclic preferences.
-Hence we exhibit some properties of simple preference systems admitting no odd cycles with cyclic preferences first.
+In the following we exhibit some properties of simple preference systems admitting no odd cycles with cyclic preferences.
 \begin{lemma}
 \label{lem:prf1}
 Let $(G,\prec)$ be a simple preference system. If $(G,\prec)$ admits no odd cycles with cyclic preferences, then $SM(G,\prec)=FSM(G,\prec)$.
@@ -316,8 +330,8 @@ We remark that the parity of vertices and edges refers to the parity of their in
 \begin{equation*}
 z(e):=
 \begin{cases}
-1 & e\text{ is an even edge in some }C \in E_{1/2}(x),\\
--1 & e\text{ is an odd edge in some }C \in E_{1/2}(x),\\
+1 & e\text{ is an even edge in }C \in E_{1/2}(x),\\
+-1 & e\text{ is an odd edge in }C \in E_{1/2}(x),\\
 0 & \text{otherwise}.
 \end{cases}
 \end{equation*}
@@ -433,7 +447,7 @@ However we cannot construct a preference system with strict linear preferences f
 Besides, the fractional kernel polytope $FK(D)$ has three vertices $(1,0,0,1)$, $(1/2,1/2,0,1/2)$ and $(0,1,1,0)$ including a fractional one.
 
 \section*{Acknowledgments}
-The author is grateful to Wenan Zang for his valuable suggestions.
+The author is grateful to Prof. Wenan Zang for his valuable suggestions.
 
 \bibliographystyle{siam}
 \bibliography{KernelMengerian}
