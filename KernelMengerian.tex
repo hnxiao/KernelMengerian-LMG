@@ -231,7 +231,7 @@ Hence $FK(D)$ is essentially defined by Rothblum system $\pi(H,\prec)$, or equiv
 
 Observe that $H$ is a multigraph.
 To bridge the gap between simple preference system and $(H,\prec)$,
-we exploit the gadget introduced by Cechl\'{a}rov\'{a} and Fleiner \cite{CechFlei05}.
+we resort to the gadget introduced by Cechl\'{a}rov\'{a} and Fleiner \cite{CechFlei05}.
 We define a simple preference system $(H^\prime,\prec^\prime)$ from $(H,\prec)$
 by substituting each parallel edge $e$ with endpoints $u$ and $v$ in $H$ by a $6$-cycle with two hanging edges as in Figure \ref{gadget}
 \begin{figure}
@@ -288,7 +288,7 @@ Hence constraints (\ref{constraints:4}) are redundant with respect to $\pi(H,\pr
   $x_{v v_0}+x(\delta (u)\backslash\{u u_0\})\leq 1$,
   and $x_{v v_0}+x(\delta(v)\backslash\{v v_0\})\leq 1$,
   which can be viewed as $x(\varphi(e))\geq 1$, $x(\delta(u))\leq 1$, and $x(\delta(v))\leq 1$ respectively.
-  Performing Fourier-Motzkin eliminations in such an order for each gadget in $H^\prime$ leads to a linear system defined on $(H,\prec)$, which is precisely the same with $\pi(H,\prec)$ (renaming variables and removing redundant constraints if necessary).
+  Performing Fourier-Motzkin eliminations in such an order for each gadget in $H^\prime$ leads to a linear system defined on $(H,\prec)$, which is precisely the same with $\pi(H,\prec)$ (renaming variables and removing duplicating constraints if necessary).
   As proved by Cook \cite{Cook83}, total dual integrality is preserved under Fourier-Motzkin elimination of a variable if it occurs in each constraint with coefficient $0$ or $\pm 1$.
   Hence the lemma follows.
 \end{proof}
